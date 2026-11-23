@@ -1,0 +1,92 @@
+[
+  {
+    "id": "snapper",
+    "name": "Snapper",
+    "baits": ["Earthworm"],
+    "locations": ["Trading Post pier"],
+    "category": "Peaceful",
+    "contractUse": {
+      "en": "5 whole Snappers (opening assignment) & basic Fish Meat",
+      "es": "5 Snappers enteros (encargo inicial) y Fish Meat básico"
+    },
+    "notes": {
+      "en": "Starter fish right beneath the pier. Static bait, slow fight.",
+      "es": "Pez inicial debajo del muelle. Cebo estático, pelea lenta."
+    }
+  },
+  {
+    "id": "softgrazer",
+    "name": "Softgrazer",
+    "baits": ["Wind-Up Tin"],
+    "locations": ["Peaceful waters"],
+    "category": "Peaceful",
+    "contractUse": {
+      "en": "Chromatic Scales (processed at the Thresher at Betsy & Sons)",
+      "es": "Chromatic Scales (procesado en el Thresher de Betsy & Sons)"
+    },
+    "notes": {
+      "en": "Early-game calm zones. Craft Wind-Up Tin with 1 Metal Plate + 1 Fish Meat.",
+      "es": "Zonas tranquilas del inicio. El Wind-Up Tin se craftea con 1 Metal Plate + 1 Fish Meat."
+    }
+  },
+  {
+    "id": "harpooner",
+    "name": "Harpooner",
+    "baits": ["Rainbow Fin"],
+    "locations": ["Disturbed-water splash zones"],
+    "category": "Predator",
+    "contractUse": {
+      "en": "Carburetor quest chain",
+      "es": "Cadena de misiones del Carburador"
+    },
+    "notes": {
+      "en": "Requires a moving lure presentation near active splash zones.",
+      "es": "Requiere mover el señuelo cerca de zonas con agua agitada."
+    }
+  },
+  {
+    "id": "bloodgill",
+    "name": "Bloodgill",
+    "baits": ["Rainbow Fin"],
+    "locations": ["Tuning Fork outpost"],
+    "category": "Predator",
+    "contractUse": {
+      "en": "Father Matthias quest markers",
+      "es": "Misiones del Padre Matthias"
+    },
+    "notes": {
+      "en": "Found south/southeast near the Tuning Fork outpost and radio tower.",
+      "es": "Se encuentra al sur/sureste cerca del puesto Tuning Fork y la torre de radio."
+    }
+  },
+  {
+    "id": "belly-bulge",
+    "name": "Belly Bulge",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Shallow water zones"],
+    "category": "Peaceful",
+    "contractUse": {
+      "en": "Fish Meat & general trade",
+      "es": "Fish Meat y comercio general"
+    },
+    "notes": {
+      "en": "Found in shallow waters; responds to both Wind-Up Tin and Sturdy Earcrawler.",
+      "es": "Sale en aguas poco profundas; pica con Wind-Up Tin y Sturdy Earcrawler."
+    }
+  },
+  {
+    "id": "toadling",
+    "name": "Toadling",
+    "baits": ["Sturdy Earcrawler", "Wind-Up Tin"],
+    "locations": ["Weedy shallows"],
+    "category": "Peaceful",
+    "contractUse": {
+      "en": "Fish Meat & early contracts",
+      "es": "Fish Meat y contratos tempranos"
+    },
+    "notes": {
+      "en": "Inhabits weedy shallows. Sturdy Earcrawler can be bought from Gill & Bozur.",
+      "es": "Habita bajíos con algas. El Sturdy Earcrawler se compra en Gill & Bozur."
+    }
+  }
+]
