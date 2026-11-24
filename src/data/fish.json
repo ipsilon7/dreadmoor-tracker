@@ -2,12 +2,13 @@
   {
     "id": "snapper",
     "name": "Snapper",
+    "image": "/images/fish/snapper.webp",
     "baits": ["Earthworm"],
     "locations": ["Trading Post pier"],
     "category": "Peaceful",
     "contractUse": {
       "en": "5 whole Snappers (opening assignment) & basic Fish Meat",
-      "es": "5 Snappers enteros (encargo inicial) y Fish Meat básico"
+      "es": "5 Snappers enteros (encargo inicial) y carne de pescado básica"
     },
     "notes": {
       "en": "Starter fish right beneath the pier. Static bait, slow fight.",
@@ -17,21 +18,23 @@
   {
     "id": "softgrazer",
     "name": "Softgrazer",
+    "image": "/images/fish/softgrazer.webp",
     "baits": ["Wind-Up Tin"],
     "locations": ["Peaceful waters"],
     "category": "Peaceful",
     "contractUse": {
       "en": "Chromatic Scales (processed at the Thresher at Betsy & Sons)",
-      "es": "Chromatic Scales (procesado en el Thresher de Betsy & Sons)"
+      "es": "Escamas cromáticas (procesado en la trituradora de Betsy & Sons)"
     },
     "notes": {
       "en": "Early-game calm zones. Craft Wind-Up Tin with 1 Metal Plate + 1 Fish Meat.",
-      "es": "Zonas tranquilas del inicio. El Wind-Up Tin se craftea con 1 Metal Plate + 1 Fish Meat."
+      "es": "Zonas tranquilas del inicio. La Lata a cuerda se craftea con 1 Placa de metal + 1 Carne de pescado."
     }
   },
   {
     "id": "harpooner",
     "name": "Harpooner",
+    "image": "/images/fish/harpooner.webp",
     "baits": ["Rainbow Fin"],
     "locations": ["Disturbed-water splash zones"],
     "category": "Predator",
@@ -47,6 +50,7 @@
   {
     "id": "bloodgill",
     "name": "Bloodgill",
+    "image": "/images/fish/bloodgill.webp",
     "baits": ["Rainbow Fin"],
     "locations": ["Tuning Fork outpost"],
     "category": "Predator",
@@ -61,32 +65,34 @@
   },
   {
     "id": "belly-bulge",
-    "name": "Belly Bulge",
+    "name": "Bellybulge",
+    "image": "/images/fish/bellybulge.webp",
     "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Shallow water zones"],
+    "locations": ["Sheltered Shallows", "Trading Post approaches"],
     "category": "Peaceful",
     "contractUse": {
       "en": "Fish Meat & general trade",
-      "es": "Fish Meat y comercio general"
+      "es": "Carne de pescado y comercio general"
     },
     "notes": {
-      "en": "Found in shallow waters; responds to both Wind-Up Tin and Sturdy Earcrawler.",
-      "es": "Sale en aguas poco profundas; pica con Wind-Up Tin y Sturdy Earcrawler."
+      "en": "Found in Sheltered Shallows (Trading Post approaches), active day or night. Responds to Wind-Up Tin and Sturdy Earcrawler.",
+      "es": "Sale en Bajíos protegidos (accesos al Puesto Comercial), activo de día y de noche. Pica con Lata a cuerda y Earcrawler resistente."
     }
   },
   {
     "id": "toadling",
     "name": "Toadling",
+    "image": "/images/fish/toadling.webp",
     "baits": ["Sturdy Earcrawler", "Wind-Up Tin"],
     "locations": ["Weedy shallows"],
     "category": "Peaceful",
     "contractUse": {
       "en": "Fish Meat & early contracts",
-      "es": "Fish Meat y contratos tempranos"
+      "es": "Carne de pescado y contratos tempranos"
     },
     "notes": {
       "en": "Inhabits weedy shallows. Sturdy Earcrawler can be bought from Gill & Bozur.",
-      "es": "Habita bajíos con algas. El Sturdy Earcrawler se compra en Gill & Bozur."
+      "es": "Habita bajíos con algas. El Earcrawler resistente se compra en Gill & Bozur."
     }
   }
 ]

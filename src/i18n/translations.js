@@ -28,6 +28,21 @@ export const TRANSLATIONS = {
       Peaceful: 'Pacífico',
       Predator: 'Depredador',
     },
+    baits: {
+      Earthworm: 'Lombriz',
+      'Wind-Up Tin': 'Lata a cuerda',
+      'Rainbow Fin': 'Aleta arcoíris',
+      'Sturdy Earcrawler': 'Earcrawler resistente',
+    },
+    locations: {
+      'Trading Post pier': 'Muelle del Puesto Comercial',
+      'Peaceful waters': 'Aguas tranquilas',
+      'Disturbed-water splash zones': 'Zonas de agua agitada',
+      'Tuning Fork outpost': 'Puesto Tuning Fork',
+      'Sheltered Shallows': 'Bajíos protegidos',
+      'Trading Post approaches': 'Accesos al Puesto Comercial',
+      'Weedy shallows': 'Bajíos con algas',
+    },
     footerNote: 'Datos guardados localmente en tu navegador (sin cuenta).',
   },
   en: {
@@ -59,6 +74,8 @@ export const TRANSLATIONS = {
       Peaceful: 'Peaceful',
       Predator: 'Predator',
     },
+    baits: {},
+    locations: {},
     footerNote: 'Progress is saved locally in your browser (no account needed).',
   },
 };

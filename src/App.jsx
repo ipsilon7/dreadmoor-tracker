@@ -133,6 +133,9 @@ export default function App() {
     setOnlyUncaught(false);
   }
 
+  const translateBait = (bait) => t.baits?.[bait] ?? bait;
+  const translateLocation = (loc) => t.locations?.[loc] ?? loc;
+
   async function handleExport() {
     const payload = JSON.stringify(caughtIds);
     try {
@@ -289,7 +292,7 @@ export default function App() {
             <option value="">{t.allBaits}</option>
             {allBaits.map((bait) => (
               <option key={bait} value={bait}>
-                {bait}
+                {translateBait(bait)}
               </option>
             ))}
           </select>
@@ -302,7 +305,7 @@ export default function App() {
             <option value="">{t.allLocations}</option>
             {allLocations.map((loc) => (
               <option key={loc} value={loc}>
-                {loc}
+                {translateLocation(loc)}
               </option>
             ))}
           </select>
@@ -380,6 +383,19 @@ export default function App() {
                   }`}
                 >
                   <div>
+                    <div className="mb-3 flex h-32 items-center justify-center overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950/80 p-2">
+                      {fish.image ? (
+                        <img
+                          src={fish.image}
+                          alt={fish.name}
+                          loading="lazy"
+                          className="h-full w-full object-contain mix-blend-lighten"
+                        />
+                      ) : (
+                        <Fish className="h-10 w-10 text-slate-700" />
+                      )}
+                    </div>
+
                     <div className="mb-3 flex items-start justify-between gap-2">
                       <h2 className="text-lg font-bold text-slate-50">{fish.name}</h2>
                       <span
@@ -395,7 +411,7 @@ export default function App() {
                         <div>
                           <dt className="text-xs text-slate-400">{t.baitLabel}</dt>
                           <dd className="font-medium text-slate-200">
-                            {fish.baits.join(' / ')}
+                            {fish.baits.map(translateBait).join(' / ')}
                           </dd>
                         </div>
                       </div>
@@ -405,7 +421,7 @@ export default function App() {
                         <div>
                           <dt className="text-xs text-slate-400">{t.locationLabel}</dt>
                           <dd className="font-medium text-slate-200">
-                            {fish.locations.join(', ')}
+                            {fish.locations.map(translateLocation).join(', ')}
                           </dd>
                         </div>
                       </div>
