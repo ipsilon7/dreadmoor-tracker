@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dreadmoor-tracker.vercel.app/sitemap.xml
