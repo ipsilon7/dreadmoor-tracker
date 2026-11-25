@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
+  AlertTriangle,
   Anchor,
   Check,
   Clock,
@@ -25,6 +26,7 @@ import { TRANSLATIONS } from './i18n/translations';
 
 const CAUGHT_STORAGE_KEY = 'dreadmoor_caught_v1';
 const LANG_STORAGE_KEY = 'dreadmoor_lang_v1';
+const SPOILER_STORAGE_KEY = 'dreadmoor_spoiler_accepted_v1';
 
 const CATEGORY_STYLES = {
   Peaceful: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
@@ -66,6 +68,14 @@ function loadInitialLang() {
   return navigator.language?.toLowerCase().startsWith('es') ? 'es' : 'en';
 }
 
+function loadSpoilerAccepted() {
+  try {
+    return localStorage.getItem(SPOILER_STORAGE_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
+
 function FishThumbnail({ src, name, pendingLabel }) {
   const [failed, setFailed] = useState(false);
 
@@ -93,6 +103,7 @@ function FishThumbnail({ src, name, pendingLabel }) {
 
 export default function App() {
   const [lang, setLang] = useState(loadInitialLang);
+  const [spoilerAccepted, setSpoilerAccepted] = useState(loadSpoilerAccepted);
   const [caughtIds, setCaughtIds] = useState(loadCaughtIds);
   const [search, setSearch] = useState('');
   const [selectedBait, setSelectedBait] = useState('');
@@ -247,6 +258,23 @@ export default function App() {
     }
   }
 
+  function handleAcceptSpoilers() {
+    setSpoilerAccepted(true);
+    try {
+      localStorage.setItem(SPOILER_STORAGE_KEY, 'true');
+    } catch {
+      // Ignore storage errors
+    }
+  }
+
+  function handleLeaveSite() {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = 'https://store.steampowered.com/';
+    }
+  }
+
   function handleReset() {
     if (window.confirm(t.resetConfirm)) {
       setCaughtIds([]);
@@ -254,8 +282,82 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060b14] text-slate-100">
-      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-[#060b14] text-slate-100">
+      {!spoilerAccepted && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="spoiler-modal-title"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#060b14]/75 p-4 backdrop-blur-md"
+        >
+          <div className="w-full max-w-md rounded-2xl border border-amber-500/30 bg-slate-900/95 p-6 shadow-2xl shadow-black/60">
+            <div className="mb-4 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-400">
+                  <AlertTriangle className="h-5 w-5" />
+                </div>
+                <h2 id="spoiler-modal-title" className="text-lg font-bold text-slate-50">
+                  {t.spoilerTitle}
+                </h2>
+              </div>
+
+              <div className="inline-flex rounded-lg border border-slate-800 bg-slate-950/80 p-0.5">
+                <button
+                  type="button"
+                  onClick={() => setLang('es')}
+                  className={`rounded-md px-2.5 py-1 text-[11px] font-semibold transition ${
+                    lang === 'es'
+                      ? 'bg-emerald-500/20 text-emerald-300'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  ES
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLang('en')}
+                  className={`rounded-md px-2.5 py-1 text-[11px] font-semibold transition ${
+                    lang === 'en'
+                      ? 'bg-emerald-500/20 text-emerald-300'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
+
+            <p className="text-sm leading-relaxed text-slate-300">{t.spoilerDesc}</p>
+            <p className="mt-3 rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-xs leading-relaxed text-slate-400">
+              {t.spoilerNote}
+            </p>
+
+            <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+              <button
+                type="button"
+                onClick={handleLeaveSite}
+                className="rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2.5 text-sm font-medium text-slate-300 transition hover:border-slate-600 hover:text-white"
+              >
+                {t.spoilerBackBtn}
+              </button>
+              <button
+                type="button"
+                onClick={handleAcceptSpoilers}
+                className="rounded-xl border border-emerald-500/50 bg-emerald-500/20 px-4 py-2.5 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-500/30"
+              >
+                {t.spoilerAcceptBtn}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div
+        aria-hidden={!spoilerAccepted}
+        className={`mx-auto max-w-6xl px-4 py-6 transition duration-300 sm:px-6 lg:px-8 ${
+          !spoilerAccepted ? 'pointer-events-none select-none blur-md' : ''
+        }`}
+      >
         {/* Header */}
         <header className="mb-6 flex flex-col gap-4 border-b border-slate-800/80 pb-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">

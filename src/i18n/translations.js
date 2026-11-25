@@ -2,6 +2,12 @@ export const TRANSLATIONS = {
   es: {
     subtitle: 'Guía rápida de pesca y checklist personal',
     earlyAccessBadge: 'Actualizado a Early Access',
+    spoilerTitle: 'Aviso de Spoilers',
+    spoilerDesc:
+      'Esta web muestra el catálogo completo de las 28 especies del Early Access (incluidos peces únicos, mutantes y legendarios), sus ubicaciones, requisitos de equipo y usos en misiones.',
+    spoilerNote: 'Si preferís descubrirlos jugando por tu cuenta, podés salir. Continuar es decisión tuya.',
+    spoilerAcceptBtn: 'Entiendo, continuar',
+    spoilerBackBtn: 'Salir',
     progressLabel: 'Progreso de colección',
     caughtCount: '{caught} / {total} peces atrapados',
     searchPlaceholder: 'Buscar pez por nombre...',
@@ -123,6 +129,12 @@ export const TRANSLATIONS = {
   en: {
     subtitle: 'Quick fishing guide & personal collection checklist',
     earlyAccessBadge: 'Updated for Early Access',
+    spoilerTitle: 'Spoiler Warning',
+    spoilerDesc:
+      'This site displays the full Early Access catalog of all 28 fish species (including unique, mutant, and legendary catches), along with locations, gear requirements, and quest uses.',
+    spoilerNote: 'If you prefer to discover them on your own, you can leave now. Continuing is up to you.',
+    spoilerAcceptBtn: 'I understand, continue',
+    spoilerBackBtn: 'Go back',
     progressLabel: 'Collection progress',
     caughtCount: '{caught} / {total} fish caught',
     searchPlaceholder: 'Search fish by name...',
