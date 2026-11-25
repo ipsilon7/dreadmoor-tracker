@@ -2,14 +2,22 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   Anchor,
   Check,
+  Clock,
+  Coins,
+  Compass,
   Download,
   Fish,
   Languages,
   MapPin,
+  Moon,
+  Package,
   RotateCcw,
   ScrollText,
   Search,
+  Sparkles,
+  Sun,
   Upload,
+  Wrench,
   X,
 } from 'lucide-react';
 import fishData from './data/fish.json';
@@ -21,6 +29,20 @@ const LANG_STORAGE_KEY = 'dreadmoor_lang_v1';
 const CATEGORY_STYLES = {
   Peaceful: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
   Predator: 'border-amber-500/30 bg-amber-500/10 text-amber-300',
+};
+
+const RARITY_STYLES = {
+  Common: 'border-slate-600/50 bg-slate-800/70 text-slate-300',
+  Rare: 'border-sky-500/40 bg-sky-500/10 text-sky-300',
+  Unique: 'border-violet-500/40 bg-violet-500/15 text-violet-300',
+  Legendary: 'border-orange-500/40 bg-orange-500/15 text-orange-300',
+  Unknown: 'border-slate-700 bg-slate-800/60 text-slate-400',
+};
+
+const TIME_STYLES = {
+  Night: 'border-indigo-500/40 bg-indigo-500/15 text-indigo-300',
+  Day: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300',
+  Both: 'border-slate-700/80 bg-slate-800/60 text-slate-300',
 };
 
 function loadCaughtIds() {
@@ -44,6 +66,31 @@ function loadInitialLang() {
   return navigator.language?.toLowerCase().startsWith('es') ? 'es' : 'en';
 }
 
+function FishThumbnail({ src, name, pendingLabel }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!src || failed) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-1.5 text-slate-600">
+        <Fish className="h-9 w-9" />
+        <span className="text-[11px] font-medium tracking-wide uppercase text-slate-500">
+          {pendingLabel}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={name}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="h-full w-full object-contain mix-blend-lighten"
+    />
+  );
+}
+
 export default function App() {
   const [lang, setLang] = useState(loadInitialLang);
   const [caughtIds, setCaughtIds] = useState(loadCaughtIds);
@@ -51,6 +98,9 @@ export default function App() {
   const [selectedBait, setSelectedBait] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedRarity, setSelectedRarity] = useState('');
+  const [selectedLineReq, setSelectedLineReq] = useState('');
   const [onlyUncaught, setOnlyUncaught] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
 
@@ -94,6 +144,20 @@ export default function App() {
     return Array.from(new Set(fishData.map((f) => f.category))).sort();
   }, []);
 
+  const allTimes = useMemo(() => {
+    return Array.from(new Set(fishData.map((f) => f.timeOfDay))).sort();
+  }, []);
+
+  const allRarities = useMemo(() => {
+    const order = ['Common', 'Rare', 'Unique', 'Legendary', 'Unknown'];
+    const present = new Set(fishData.map((f) => f.rarity));
+    return order.filter((r) => present.has(r));
+  }, []);
+
+  const allLineReqs = useMemo(() => {
+    return Array.from(new Set(fishData.map((f) => f.lineRequirement))).sort();
+  }, []);
+
   const caughtSet = useMemo(() => new Set(caughtIds), [caughtIds]);
 
   const filteredFish = useMemo(() => {
@@ -103,16 +167,32 @@ export default function App() {
       if (selectedBait && !fish.baits.includes(selectedBait)) return false;
       if (selectedLocation && !fish.locations.includes(selectedLocation)) return false;
       if (selectedCategory && fish.category !== selectedCategory) return false;
+      if (selectedTime && fish.timeOfDay !== selectedTime) return false;
+      if (selectedRarity && fish.rarity !== selectedRarity) return false;
+      if (selectedLineReq && fish.lineRequirement !== selectedLineReq) return false;
       if (onlyUncaught && caughtSet.has(fish.id)) return false;
       return true;
     });
-  }, [search, selectedBait, selectedLocation, selectedCategory, onlyUncaught, caughtSet]);
+  }, [
+    search,
+    selectedBait,
+    selectedLocation,
+    selectedCategory,
+    selectedTime,
+    selectedRarity,
+    selectedLineReq,
+    onlyUncaught,
+    caughtSet,
+  ]);
 
   const hasActiveFilters =
     Boolean(search) ||
     Boolean(selectedBait) ||
     Boolean(selectedLocation) ||
     Boolean(selectedCategory) ||
+    Boolean(selectedTime) ||
+    Boolean(selectedRarity) ||
+    Boolean(selectedLineReq) ||
     onlyUncaught;
 
   const totalCount = fishData.length;
@@ -130,11 +210,17 @@ export default function App() {
     setSelectedBait('');
     setSelectedLocation('');
     setSelectedCategory('');
+    setSelectedTime('');
+    setSelectedRarity('');
+    setSelectedLineReq('');
     setOnlyUncaught(false);
   }
 
   const translateBait = (bait) => t.baits?.[bait] ?? bait;
   const translateLocation = (loc) => t.locations?.[loc] ?? loc;
+  const translateHabitat = (hab) => t.habitats?.[hab] ?? hab;
+  const translateLineReq = (req) => t.lineRequirements?.[req] ?? req;
+  const translateRecyclingItem = (item) => t.recyclingItems?.[item] ?? item;
 
   async function handleExport() {
     const payload = JSON.stringify(caughtIds);
@@ -177,9 +263,15 @@ export default function App() {
               <Anchor className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight text-slate-50 sm:text-2xl">
-                DREADMOOR <span className="text-emerald-400">Tracker</span>
-              </h1>
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-xl font-bold tracking-tight text-slate-50 sm:text-2xl">
+                  DREADMOOR <span className="text-emerald-400">Tracker</span>
+                </h1>
+                <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-300">
+                  <Sparkles className="h-3 w-3" />
+                  {t.earlyAccessBadge}
+                </span>
+              </div>
               <p className="text-sm text-slate-400">{t.subtitle}</p>
             </div>
           </div>
@@ -272,8 +364,8 @@ export default function App() {
         </section>
 
         {/* Search & Filters */}
-        <section className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="relative sm:col-span-2 lg:col-span-1">
+        <section className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
@@ -319,6 +411,45 @@ export default function App() {
             {allCategories.map((cat) => (
               <option key={cat} value={cat}>
                 {t.categories[cat] ?? cat}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={selectedTime}
+            onChange={(e) => setSelectedTime(e.target.value)}
+            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
+          >
+            <option value="">{t.allTimes}</option>
+            {allTimes.map((time) => (
+              <option key={time} value={time}>
+                {t.times[time] ?? time}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={selectedRarity}
+            onChange={(e) => setSelectedRarity(e.target.value)}
+            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
+          >
+            <option value="">{t.allRarities}</option>
+            {allRarities.map((rarity) => (
+              <option key={rarity} value={rarity}>
+                {t.rarities[rarity] ?? rarity}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={selectedLineReq}
+            onChange={(e) => setSelectedLineReq(e.target.value)}
+            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
+          >
+            <option value="">{t.allLineReqs}</option>
+            {allLineReqs.map((req) => (
+              <option key={req} value={req}>
+                {translateLineReq(req)}
               </option>
             ))}
           </select>
@@ -369,9 +500,11 @@ export default function App() {
           <main className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredFish.map((fish) => {
               const isCaught = caughtSet.has(fish.id);
-              const badgeStyle =
+              const categoryStyle =
                 CATEGORY_STYLES[fish.category] ??
                 'border-slate-700 bg-slate-800 text-slate-300';
+              const rarityStyle = RARITY_STYLES[fish.rarity] ?? RARITY_STYLES.Unknown;
+              const timeStyle = TIME_STYLES[fish.timeOfDay] ?? TIME_STYLES.Both;
 
               return (
                 <article
@@ -384,24 +517,47 @@ export default function App() {
                 >
                   <div>
                     <div className="mb-3 flex h-32 items-center justify-center overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950/80 p-2">
-                      {fish.image ? (
-                        <img
-                          src={fish.image}
-                          alt={fish.name}
-                          loading="lazy"
-                          className="h-full w-full object-contain mix-blend-lighten"
-                        />
-                      ) : (
-                        <Fish className="h-10 w-10 text-slate-700" />
-                      )}
+                      <FishThumbnail
+                        src={fish.image}
+                        name={fish.name}
+                        pendingLabel={t.imagePending}
+                      />
                     </div>
 
-                    <div className="mb-3 flex items-start justify-between gap-2">
+                    <div className="mb-2 flex items-start justify-between gap-2">
                       <h2 className="text-lg font-bold text-slate-50">{fish.name}</h2>
                       <span
-                        className={`shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-medium ${badgeStyle}`}
+                        className={`shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-medium ${categoryStyle}`}
                       >
                         {t.categories[fish.category] ?? fish.category}
+                      </span>
+                    </div>
+
+                    {/* Rarity, Mutant & Time badges */}
+                    <div className="mb-3 flex flex-wrap items-center gap-1.5">
+                      <span
+                        className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${rarityStyle}`}
+                      >
+                        {t.rarities[fish.rarity] ?? fish.rarity}
+                      </span>
+
+                      {fish.isMutant && (
+                        <span className="rounded-full border border-fuchsia-500/40 bg-fuchsia-500/15 px-2 py-0.5 text-[11px] font-medium text-fuchsia-300">
+                          {t.mutantBadge}
+                        </span>
+                      )}
+
+                      <span
+                        className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium ${timeStyle}`}
+                      >
+                        {fish.timeOfDay === 'Night' ? (
+                          <Moon className="h-3 w-3" />
+                        ) : fish.timeOfDay === 'Day' ? (
+                          <Sun className="h-3 w-3" />
+                        ) : (
+                          <Clock className="h-3 w-3" />
+                        )}
+                        {t.times[fish.timeOfDay] ?? fish.timeOfDay}
                       </span>
                     </div>
 
@@ -425,6 +581,52 @@ export default function App() {
                           </dd>
                         </div>
                       </div>
+
+                      <div className="flex items-start gap-2">
+                        <Compass className="mt-0.5 h-4 w-4 shrink-0 text-teal-400" />
+                        <div>
+                          <dt className="text-xs text-slate-400">{t.habitatLabel}</dt>
+                          <dd className="text-slate-300">{translateHabitat(fish.habitat)}</dd>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-2">
+                        <Wrench className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                        <div>
+                          <dt className="text-xs text-slate-400">{t.lineLabel}</dt>
+                          <dd className="text-slate-300">
+                            {translateLineReq(fish.lineRequirement)}
+                          </dd>
+                        </div>
+                      </div>
+
+                      {(fish.sellPrice || (fish.recycling && fish.recycling.length > 0)) && (
+                        <div className="flex items-start gap-2">
+                          <Coins className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400" />
+                          <div className="space-y-0.5">
+                            {fish.sellPrice && (
+                              <div>
+                                <dt className="inline text-xs text-slate-400">
+                                  {t.sellPriceLabel}:{' '}
+                                </dt>
+                                <dd className="inline text-xs font-medium text-slate-200">
+                                  {fish.sellPrice}
+                                </dd>
+                              </div>
+                            )}
+                            {fish.recycling && fish.recycling.length > 0 && (
+                              <div className="flex items-start gap-1">
+                                <Package className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-400" />
+                                <dd className="text-xs text-slate-300">
+                                  {fish.recycling
+                                    .map((r) => `${r.qty}x ${translateRecyclingItem(r.item)}`)
+                                    .join(', ')}
+                                </dd>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
 
                       <div className="flex items-start gap-2">
                         <ScrollText className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />

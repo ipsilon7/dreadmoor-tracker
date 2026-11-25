@@ -3,9 +3,18 @@
     "id": "snapper",
     "name": "Snapper",
     "image": "/images/fish/snapper.webp",
+    "category": "Peaceful",
+    "rarity": "Common",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Pier / Shallows",
     "baits": ["Earthworm"],
     "locations": ["Trading Post pier"],
-    "category": "Peaceful",
+    "sellPrice": "5–15",
+    "recycling": [
+      { "item": "Fish meat", "qty": 1 }
+    ],
     "contractUse": {
       "en": "5 whole Snappers (opening assignment) & basic Fish Meat",
       "es": "5 Snappers enteros (encargo inicial) y carne de pescado básica"
@@ -19,9 +28,19 @@
     "id": "softgrazer",
     "name": "Softgrazer",
     "image": "/images/fish/softgrazer.webp",
+    "category": "Peaceful",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Peaceful Waters",
     "baits": ["Wind-Up Tin"],
     "locations": ["Peaceful waters"],
-    "category": "Peaceful",
+    "sellPrice": "16–28",
+    "recycling": [
+      { "item": "Fish meat", "qty": 1 },
+      { "item": "Chromatic scales", "qty": 1 }
+    ],
     "contractUse": {
       "en": "Chromatic Scales (processed at the Thresher at Betsy & Sons)",
       "es": "Escamas cromáticas (procesado en la trituradora de Betsy & Sons)"
@@ -32,67 +51,688 @@
     }
   },
   {
-    "id": "harpooner",
-    "name": "Harpooner",
-    "image": "/images/fish/harpooner.webp",
-    "baits": ["Rainbow Fin"],
-    "locations": ["Disturbed-water splash zones"],
-    "category": "Predator",
-    "contractUse": {
-      "en": "Carburetor quest chain",
-      "es": "Cadena de misiones del Carburador"
-    },
-    "notes": {
-      "en": "Requires a moving lure presentation near active splash zones.",
-      "es": "Requiere mover el señuelo cerca de zonas con agua agitada."
-    }
-  },
-  {
-    "id": "bloodgill",
-    "name": "Bloodgill",
-    "image": "/images/fish/bloodgill.webp",
-    "baits": ["Rainbow Fin"],
-    "locations": ["Tuning Fork outpost"],
-    "category": "Predator",
-    "contractUse": {
-      "en": "Father Matthias quest markers",
-      "es": "Misiones del Padre Matthias"
-    },
-    "notes": {
-      "en": "Found south/southeast near the Tuning Fork outpost and radio tower.",
-      "es": "Se encuentra al sur/sureste cerca del puesto Tuning Fork y la torre de radio."
-    }
-  },
-  {
     "id": "belly-bulge",
     "name": "Bellybulge",
     "image": "/images/fish/bellybulge.webp",
+    "category": "Peaceful",
+    "rarity": "Common",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Sheltered Shallows",
     "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
     "locations": ["Sheltered Shallows", "Trading Post approaches"],
-    "category": "Peaceful",
+    "sellPrice": "39–100",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Chromatic scales", "qty": 2 }
+    ],
     "contractUse": {
-      "en": "Fish Meat & general trade",
-      "es": "Carne de pescado y comercio general"
+      "en": "Fish Meat, Chromatic Scales & general trade",
+      "es": "Carne de pescado, escamas cromáticas y comercio general"
     },
     "notes": {
-      "en": "Found in Sheltered Shallows (Trading Post approaches), active day or night. Responds to Wind-Up Tin and Sturdy Earcrawler.",
-      "es": "Sale en Bajíos protegidos (accesos al Puesto Comercial), activo de día y de noche. Pica con Lata a cuerda y Earcrawler resistente."
+      "en": "Found in Sheltered Shallows (Trading Post approaches), active day or night.",
+      "es": "Sale en Bajíos protegidos (accesos al Puesto Comercial), activo de día y de noche."
     }
   },
   {
     "id": "toadling",
     "name": "Toadling",
     "image": "/images/fish/toadling.webp",
+    "category": "Peaceful",
+    "rarity": "Common",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Weedy Shallows",
     "baits": ["Sturdy Earcrawler", "Wind-Up Tin"],
     "locations": ["Weedy shallows"],
-    "category": "Peaceful",
+    "sellPrice": "40–101",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Chromatic scales", "qty": 2 }
+    ],
     "contractUse": {
-      "en": "Fish Meat & early contracts",
-      "es": "Carne de pescado y contratos tempranos"
+      "en": "Fish Meat, Chromatic Scales & early contracts",
+      "es": "Carne de pescado, escamas cromáticas y contratos tempranos"
     },
     "notes": {
       "en": "Inhabits weedy shallows. Sturdy Earcrawler can be bought from Gill & Bozur.",
       "es": "Habita bajíos con algas. El Earcrawler resistente se compra en Gill & Bozur."
+    }
+  },
+  {
+    "id": "sharpfin",
+    "name": "Sharpfin",
+    "image": null,
+    "category": "Peaceful",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Peaceful Waters",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Peaceful waters"],
+    "sellPrice": "26–58",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Chromatic scales", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Chromatic Scales & general trade",
+      "es": "Escamas cromáticas y comercio general"
+    },
+    "notes": {
+      "en": "Keep the bait completely still in peaceful fishing schools.",
+      "es": "Dejá el cebo completamente quieto en cardúmenes pacíficos."
+    }
+  },
+  {
+    "id": "shovelnose",
+    "name": "Shovelnose",
+    "image": null,
+    "category": "Peaceful",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Outer / Deep Water",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Outer regions"],
+    "sellPrice": "26–61",
+    "recycling": [
+      { "item": "Chromatic scales", "qty": 2 },
+      { "item": "Bone plate", "qty": 1 },
+      { "item": "Fish meat", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Bone Plate & Chromatic Scales",
+      "es": "Placa ósea y escamas cromáticas"
+    },
+    "notes": {
+      "en": "Peaceful species in deeper/outer regions. No module upgrade required.",
+      "es": "Especie pacífica en zonas exteriores/profundas. No requiere mejora de módulo."
+    }
+  },
+  {
+    "id": "tileback",
+    "name": "Tileback",
+    "image": null,
+    "category": "Peaceful",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Peaceful Waters",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Peaceful waters"],
+    "sellPrice": "35–75",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Chromatic scales", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "High-yield Chromatic Scales",
+      "es": "Alta cantidad de escamas cromáticas"
+    },
+    "notes": {
+      "en": "Leave bait still. Great source of Chromatic Scales without gear requirements.",
+      "es": "Dejá el cebo quieto. Excelente fuente de escamas cromáticas sin requisitos de equipo."
+    }
+  },
+  {
+    "id": "necrosoft",
+    "name": "Necrosoft",
+    "image": null,
+    "category": "Peaceful",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "None",
+    "habitat": "Night / Blighted Waters",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Mutated night schools"],
+    "sellPrice": "39–94",
+    "recycling": [
+      { "item": "Mutant fish meat", "qty": 1 },
+      { "item": "Chromatic scales", "qty": 3 },
+      { "item": "Leeches", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Mutant Fish Meat, Leeches & Chromatic Scales",
+      "es": "Carne de pez mutante, sanguijuelas y escamas cromáticas"
+    },
+    "notes": {
+      "en": "Mutated Softgrazer. Only appears at night; keep bait still.",
+      "es": "Forma mutante del Softgrazer. Solo sale de noche; dejá el cebo quieto."
+    }
+  },
+  {
+    "id": "sawfin",
+    "name": "Sawfin",
+    "image": null,
+    "category": "Peaceful",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "None",
+    "habitat": "Night / Blighted Waters",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Mutated night schools"],
+    "sellPrice": "40–99",
+    "recycling": [
+      { "item": "Mutant fish meat", "qty": 1 },
+      { "item": "Chromatic scales", "qty": 3 },
+      { "item": "Leeches", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Mutant Fish Meat & Leeches",
+      "es": "Carne de pez mutante y sanguijuelas"
+    },
+    "notes": {
+      "en": "Mutated Sharpfin. Night only; do not reel in.",
+      "es": "Forma mutante del Sharpfin. Solo de noche; no recojas la línea."
+    }
+  },
+  {
+    "id": "gravedigger",
+    "name": "Gravedigger",
+    "image": null,
+    "category": "Peaceful",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "Exhaustion 45",
+    "habitat": "Drowned Ruins",
+    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
+    "locations": ["Drowned Ruins"],
+    "sellPrice": "50–130",
+    "recycling": [
+      { "item": "Chromatic scales", "qty": 3 },
+      { "item": "Leeches", "qty": 2 },
+      { "item": "Bone plate", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Late-game Bone Plate, Leeches & high value trade",
+      "es": "Placa ósea, sanguijuelas y venta de alto valor"
+    },
+    "notes": {
+      "en": "Night only around Drowned Ruins. Requires Exhaustion 45 module; keep bait still.",
+      "es": "Solo de noche en Ruinas sumergidas. Requiere módulo Agotamiento 45; dejá el cebo quieto."
+    }
+  },
+  {
+    "id": "harpooner",
+    "name": "Harpooner",
+    "image": "/images/fish/harpooner.webp",
+    "category": "Predator",
+    "rarity": "Common",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Splash Zones",
+    "baits": ["Rainbow Fin"],
+    "locations": ["Disturbed-water splash zones"],
+    "sellPrice": "15–32",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Jaws", "qty": 1 }
+    ],
+    "contractUse": {
+      "en": "Carburetor quest chain & early Jaws",
+      "es": "Cadena de misiones del Carburador y mandíbulas iniciales"
+    },
+    "notes": {
+      "en": "Requires reeling the lure slowly near active splash zones.",
+      "es": "Requiere recoger el señuelo lento cerca de zonas con agua agitada."
+    }
+  },
+  {
+    "id": "bloodgill",
+    "name": "Bloodgill",
+    "image": "/images/fish/bloodgill.webp",
+    "category": "Predator",
+    "rarity": "Common",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "None",
+    "habitat": "Outer / Deep Water",
+    "baits": ["Rainbow Fin"],
+    "locations": ["Tuning Fork outpost"],
+    "sellPrice": "26–53",
+    "recycling": [
+      { "item": "Fish meat", "qty": 3 },
+      { "item": "Jaws", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Father Matthias quest markers",
+      "es": "Misiones del Padre Matthias"
+    },
+    "notes": {
+      "en": "Found south/southeast near the Tuning Fork outpost and radio tower. Reel slowly.",
+      "es": "Se encuentra al sur/sureste cerca del puesto Tuning Fork y la torre de radio. Recogé lento."
+    }
+  },
+  {
+    "id": "gleamer",
+    "name": "Gleamer",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Night",
+    "lineRequirement": "None",
+    "habitat": "Night / Blighted Waters",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Dark waterways", "Open water"],
+    "sellPrice": "29–62",
+    "recycling": [
+      { "item": "Fish meat", "qty": 3 },
+      { "item": "Jaws", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Fish Meat & Jaws",
+      "es": "Carne de pescado y mandíbulas"
+    },
+    "notes": {
+      "en": "Bioluminescent predator active at night. Reel slowly.",
+      "es": "Depredador bioluminiscente activo de noche. Recogé lento."
+    }
+  },
+  {
+    "id": "greasechar",
+    "name": "Greasechar",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Line Strength 30",
+    "habitat": "Splash Zones",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Predatory grounds"],
+    "sellPrice": "28–59",
+    "recycling": [
+      { "item": "Fish meat", "qty": 1 },
+      { "item": "Fish guts", "qty": 2 },
+      { "item": "Jaws", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Fish Guts & Jaws",
+      "es": "Vísceras de pescado y mandíbulas"
+    },
+    "notes": {
+      "en": "Requires Line Strength 30 (e.g. Braided Line). Reel slowly.",
+      "es": "Requiere Resistencia de línea 30. Recogé el señuelo lento."
+    }
+  },
+  {
+    "id": "hornhead",
+    "name": "Hornhead",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Thrust 30",
+    "habitat": "Outer / Deep Water",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Deep-water zones"],
+    "sellPrice": "30–68",
+    "recycling": [
+      { "item": "Fish guts", "qty": 2 },
+      { "item": "Jaws", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "High-yield Jaws & Fish Guts",
+      "es": "Mandíbulas y vísceras de pescado"
+    },
+    "notes": {
+      "en": "Deep-water predator requiring Thrust 30 module.",
+      "es": "Depredador de aguas profundas; requiere módulo Empuje 30."
+    }
+  },
+  {
+    "id": "rivetback",
+    "name": "Rivetback",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Thrust 30",
+    "habitat": "Outer / Deep Water",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Deep-water zones"],
+    "sellPrice": "34–69",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Jaws", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Fish Meat & Jaws",
+      "es": "Carne de pescado y mandíbulas"
+    },
+    "notes": {
+      "en": "Found in deeper channels. Requires Thrust 30 module.",
+      "es": "Sale en canales profundos. Requiere módulo Empuje 30."
+    }
+  },
+  {
+    "id": "bully",
+    "name": "Bully",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Exhaustion 30",
+    "habitat": "Splash Zones",
+    "baits": ["Pipecross", "Clinging Pincer"],
+    "locations": ["Predatory channels"],
+    "sellPrice": "41–101",
+    "recycling": [
+      { "item": "Jaws", "qty": 2 },
+      { "item": "Bone plate", "qty": 3 },
+      { "item": "Fish meat", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "Bone Plate & Jaws farming",
+      "es": "Farmeo de placa ósea y mandíbulas"
+    },
+    "notes": {
+      "en": "Requires Pipecross or Clinging Pincer bait and Exhaustion 30 module.",
+      "es": "Requiere cebo Pipecross o Tenaza adherente y módulo Agotamiento 30."
+    }
+  },
+  {
+    "id": "bonescar",
+    "name": "Bonescar",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Thrust 30",
+    "habitat": "Outer / Deep Water",
+    "baits": ["Pipecross", "Clinging Pincer"],
+    "locations": ["Deep-water zones"],
+    "sellPrice": "48–118",
+    "recycling": [
+      { "item": "Bone plate", "qty": 2 },
+      { "item": "Jaws", "qty": 2 },
+      { "item": "Fish meat", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Bone Plate, Jaws & high sell value",
+      "es": "Placa ósea, mandíbulas y buen valor de venta"
+    },
+    "notes": {
+      "en": "Deep-water predator requiring Thrust 30 and heavy-duty lures.",
+      "es": "Depredador de aguas profundas; requiere Empuje 30 y señuelos pesados."
+    }
+  },
+  {
+    "id": "bristler",
+    "name": "Bristler",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Rare",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Unknown",
+    "habitat": "The Throat / Sunken Cities",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["The Throat", "Sunken Cities"],
+    "sellPrice": null,
+    "recycling": [],
+    "contractUse": {
+      "en": "Late-zone predator catch",
+      "es": "Captura de depredador en zona avanzada"
+    },
+    "notes": {
+      "en": "Dangerous predator found near The Throat / Sunken Cities.",
+      "es": "Depredador peligroso ubicado cerca de La Garganta / Ciudades hundidas."
+    }
+  },
+  {
+    "id": "crackback",
+    "name": "Crackback",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "None",
+    "habitat": "Night / Blighted Waters",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Mutated night schools"],
+    "sellPrice": "37–83",
+    "recycling": [
+      { "item": "Mutant fish meat", "qty": 1 },
+      { "item": "Jaws", "qty": 2 },
+      { "item": "Leeches", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Mutant Fish Meat & Leeches",
+      "es": "Carne de pez mutante y sanguijuelas"
+    },
+    "notes": {
+      "en": "Mutated Gleamer. Night only; no module requirement.",
+      "es": "Forma mutante del Gleamer. Solo de noche; sin requisito de módulo."
+    }
+  },
+  {
+    "id": "swallower",
+    "name": "Swallower",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "Exhaustion 30",
+    "habitat": "Night / Blighted Waters",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Mutated night schools"],
+    "sellPrice": "24–50",
+    "recycling": [
+      { "item": "Mutant fish meat", "qty": 1 },
+      { "item": "Jaws", "qty": 2 },
+      { "item": "Leeches", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Mutant Fish Meat & Leeches",
+      "es": "Carne de pez mutante y sanguijuelas"
+    },
+    "notes": {
+      "en": "Night-only predator mutant. Requires Exhaustion 30 module.",
+      "es": "Mutante depredador solo nocturno. Requiere módulo Agotamiento 30."
+    }
+  },
+  {
+    "id": "cryptmaw",
+    "name": "Cryptmaw",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "Line Strength 30",
+    "habitat": "Night / Blighted Waters",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Mutated night schools"],
+    "sellPrice": "43–106",
+    "recycling": [
+      { "item": "Mutant fish meat", "qty": 2 },
+      { "item": "Jaws", "qty": 2 },
+      { "item": "Leeches", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Night Fishing quest target & Mutant Fish Meat",
+      "es": "Objetivo de misión nocturna y carne de pez mutante"
+    },
+    "notes": {
+      "en": "Only bites at night. Requires Line Strength 30 and slow reeling.",
+      "es": "Solo pica de noche. Requiere Resistencia de línea 30 y recoger lento."
+    }
+  },
+  {
+    "id": "stonegnawer",
+    "name": "Stonegnawer",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Both",
+    "lineRequirement": "Thrust 45",
+    "habitat": "Outer / Deep Water",
+    "baits": ["Pipecross", "Clinging Pincer"],
+    "locations": ["Mutated deep schools"],
+    "sellPrice": "38–115",
+    "recycling": [
+      { "item": "Bone plate", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "High-yield Bone Plate",
+      "es": "Alta cantidad de placa ósea"
+    },
+    "notes": {
+      "en": "Mutated Bully relative active day & night. Requires Thrust 45.",
+      "es": "Variante mutante del Bully activa día y noche. Requiere Empuje 45."
+    }
+  },
+  {
+    "id": "shardback",
+    "name": "Shardback",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Legendary",
+    "isMutant": true,
+    "timeOfDay": "Both",
+    "lineRequirement": "Exhaustion 45",
+    "habitat": "Caves / Landmarks",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Fixed landmark spot"],
+    "sellPrice": "58–137",
+    "recycling": [
+      { "item": "Mutant fish meat", "qty": 1 },
+      { "item": "Jaws", "qty": 1 },
+      { "item": "Leeches", "qty": 2 }
+    ],
+    "contractUse": {
+      "en": "Legendary trophy & high sell value",
+      "es": "Trofeo legendario y alto valor de venta"
+    },
+    "notes": {
+      "en": "Legendary catch at a fixed cave/island spot (dock boat first). Requires Exhaustion 45.",
+      "es": "Captura legendaria en punto fijo (atracar el barco primero). Requiere Agotamiento 45."
+    }
+  },
+  {
+    "id": "rammfish",
+    "name": "Rammfish",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Legendary",
+    "isMutant": true,
+    "timeOfDay": "Both",
+    "lineRequirement": "Thrust 45",
+    "habitat": "Wreck Fields",
+    "baits": ["Pipecross", "Clinging Pincer"],
+    "locations": ["Wreck Fields"],
+    "sellPrice": "54–139",
+    "recycling": [
+      { "item": "Bony horn", "qty": 1 },
+      { "item": "Bone plate", "qty": 2 },
+      { "item": "Leeches", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "Bony Horn, Bone Plate & top sell price",
+      "es": "Cuerno óseo, placa ósea y máximo valor de venta"
+    },
+    "notes": {
+      "en": "Legendary predator at Wreck Fields (dock boat). Requires Thrust 45.",
+      "es": "Depredador legendario en Campos de restos (atracar el barco). Requiere Empuje 45."
+    }
+  },
+  {
+    "id": "glowbug",
+    "name": "Glowbug",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Legendary",
+    "isMutant": true,
+    "timeOfDay": "Both",
+    "lineRequirement": "Line Strength 45",
+    "habitat": "Blighted Backwater",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Blighted Backwater"],
+    "sellPrice": "55–131",
+    "recycling": [
+      { "item": "Glowbug", "qty": 1 },
+      { "item": "Jaws", "qty": 2 },
+      { "item": "Leeches", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "Legendary specimen & Leeches",
+      "es": "Espécimen legendario y sanguijuelas"
+    },
+    "notes": {
+      "en": "Legendary catch at Blighted Backwater. Requires Line Strength 45.",
+      "es": "Captura legendaria en Remanso infectado. Requiere Resistencia de línea 45."
+    }
+  },
+  {
+    "id": "stormfin",
+    "name": "Stormfin",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Legendary",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Exhaustion 45",
+    "habitat": "Caves / Landmarks",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Fixed landmark spot"],
+    "sellPrice": "45–93",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Jaws", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "Legendary trophy & Jaws",
+      "es": "Trofeo legendario y mandíbulas"
+    },
+    "notes": {
+      "en": "Legendary predator at a fixed landmark spot. Requires Exhaustion 45.",
+      "es": "Depredador legendario en punto fijo del mapa. Requiere Agotamiento 45."
+    }
+  },
+  {
+    "id": "plasmling",
+    "name": "Plasmling",
+    "image": null,
+    "category": "Predator",
+    "rarity": "Legendary",
+    "isMutant": false,
+    "timeOfDay": "Both",
+    "lineRequirement": "Thrust 45",
+    "habitat": "Caves / Landmarks",
+    "baits": ["Rainbow Fin", "Flaming Belly"],
+    "locations": ["Fixed landmark spot"],
+    "sellPrice": "45–90",
+    "recycling": [
+      { "item": "Fish meat", "qty": 2 },
+      { "item": "Jaws", "qty": 3 }
+    ],
+    "contractUse": {
+      "en": "Legendary trophy & Jaws",
+      "es": "Trofeo legendario y mandíbulas"
+    },
+    "notes": {
+      "en": "Legendary predator at a fixed landmark spot. Requires Thrust 45.",
+      "es": "Depredador legendario en punto fijo del mapa. Requiere Empuje 45."
     }
   }
 ]
