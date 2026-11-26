@@ -690,7 +690,7 @@
   {
     "id": "harpy",
     "name": "Harpy",
-    "image": null,
+    "image": "/images/fish/harpy.webp",
     "category": "Predator",
     "rarity": "Unique",
     "isMutant": true,

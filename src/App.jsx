@@ -9,6 +9,7 @@ import {
   Download,
   Fish,
   Languages,
+  LayoutGrid,
   MapPin,
   Moon,
   Package,
@@ -17,6 +18,7 @@ import {
   Search,
   Sparkles,
   Sun,
+  Table,
   Upload,
   Wrench,
   X,
@@ -27,6 +29,7 @@ import { TRANSLATIONS } from './i18n/translations';
 const CAUGHT_STORAGE_KEY = 'dreadmoor_caught_v1';
 const LANG_STORAGE_KEY = 'dreadmoor_lang_v1';
 const SPOILER_STORAGE_KEY = 'dreadmoor_spoiler_accepted_v1';
+const VIEW_STORAGE_KEY = 'dreadmoor_view_v1';
 
 const CATEGORY_STYLES = {
   Peaceful: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
@@ -76,6 +79,16 @@ function loadSpoilerAccepted() {
   }
 }
 
+function loadInitialView() {
+  try {
+    const saved = localStorage.getItem(VIEW_STORAGE_KEY);
+    if (saved === 'grid' || saved === 'table') return saved;
+  } catch {
+    // Ignore storage errors
+  }
+  return 'grid';
+}
+
 function FishThumbnail({ src, name, pendingLabel }) {
   const [failed, setFailed] = useState(false);
 
@@ -103,6 +116,7 @@ function FishThumbnail({ src, name, pendingLabel }) {
 
 export default function App() {
   const [lang, setLang] = useState(loadInitialLang);
+  const [viewMode, setViewMode] = useState(loadInitialView);
   const [spoilerAccepted, setSpoilerAccepted] = useState(loadSpoilerAccepted);
   const [caughtIds, setCaughtIds] = useState(loadCaughtIds);
   const [search, setSearch] = useState('');
@@ -132,6 +146,14 @@ export default function App() {
       // Ignore storage errors
     }
   }, [lang]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(VIEW_STORAGE_KEY, viewMode);
+    } catch {
+      // Ignore storage errors
+    }
+  }, [viewMode]);
 
   useEffect(() => {
     if (!statusMessage) return undefined;
@@ -600,7 +622,43 @@ export default function App() {
           </div>
         </section>
 
-        {/* Fish Grid */}
+        {/* Results Bar & View Switcher */}
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+          <p className="text-xs font-medium text-slate-400">
+            {t.showingCount
+              .replace('{count}', String(filteredFish.length))
+              .replace('{total}', String(totalCount))}
+          </p>
+
+          <div className="inline-flex rounded-xl border border-slate-800 bg-slate-900/90 p-1">
+            <button
+              type="button"
+              onClick={() => setViewMode('grid')}
+              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                viewMode === 'grid'
+                  ? 'bg-emerald-500/20 text-emerald-300'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <LayoutGrid className="h-3.5 w-3.5" />
+              {t.viewGrid}
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('table')}
+              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                viewMode === 'table'
+                  ? 'bg-emerald-500/20 text-emerald-300'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Table className="h-3.5 w-3.5" />
+              {t.viewTable}
+            </button>
+          </div>
+        </div>
+
+        {/* Fish Grid / Table */}
         {filteredFish.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-slate-800 bg-slate-900/40 p-10 text-center">
             <Fish className="mx-auto mb-3 h-8 w-8 text-slate-500" />
@@ -616,6 +674,135 @@ export default function App() {
               </button>
             )}
           </div>
+        ) : viewMode === 'table' ? (
+          <main className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/60">
+            <table className="w-full min-w-[780px] border-collapse text-left text-xs sm:text-sm">
+              <thead>
+                <tr className="border-b border-slate-800 bg-slate-950/60 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-4 py-3">{t.colFish}</th>
+                  <th className="px-3 py-3">{t.colType}</th>
+                  <th className="px-3 py-3">{t.colTime}</th>
+                  <th className="px-3 py-3">{t.colBait}</th>
+                  <th className="px-3 py-3">{t.colLocation}</th>
+                  <th className="px-3 py-3">{t.colGear}</th>
+                  <th className="px-3 py-3">{t.colValue}</th>
+                  <th className="px-4 py-3 text-right">{t.colStatus}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/70">
+                {filteredFish.map((fish) => {
+                  const isCaught = caughtSet.has(fish.id);
+                  const categoryStyle =
+                    CATEGORY_STYLES[fish.category] ??
+                    'border-slate-700 bg-slate-800 text-slate-300';
+                  const rarityStyle = RARITY_STYLES[fish.rarity] ?? RARITY_STYLES.Unknown;
+                  const timeStyle = TIME_STYLES[fish.timeOfDay] ?? TIME_STYLES.Both;
+
+                  return (
+                    <tr
+                      key={fish.id}
+                      className={`transition ${
+                        isCaught ? 'bg-emerald-950/20' : 'hover:bg-slate-800/30'
+                      }`}
+                    >
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80 p-1">
+                            <FishThumbnail
+                              src={fish.image}
+                              name={fish.name}
+                              pendingLabel=""
+                            />
+                          </div>
+                          <div>
+                            <div className="font-semibold text-slate-100">{fish.name}</div>
+                            {fish.isMutant && (
+                              <span className="mt-0.5 inline-block rounded-full border border-fuchsia-500/40 bg-fuchsia-500/15 px-1.5 py-0.2 text-[10px] font-medium text-fuchsia-300">
+                                {t.mutantBadge}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="px-3 py-3">
+                        <div className="flex flex-col items-start gap-1">
+                          <span
+                            className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${categoryStyle}`}
+                          >
+                            {t.categories[fish.category] ?? fish.category}
+                          </span>
+                          <span
+                            className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${rarityStyle}`}
+                          >
+                            {t.rarities[fish.rarity] ?? fish.rarity}
+                          </span>
+                        </div>
+                      </td>
+
+                      <td className="px-3 py-3">
+                        <span
+                          className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium ${timeStyle}`}
+                        >
+                          {fish.timeOfDay === 'Night' ? (
+                            <Moon className="h-3 w-3" />
+                          ) : fish.timeOfDay === 'Day' ? (
+                            <Sun className="h-3 w-3" />
+                          ) : (
+                            <Clock className="h-3 w-3" />
+                          )}
+                          {t.times[fish.timeOfDay] ?? fish.timeOfDay}
+                        </span>
+                      </td>
+
+                      <td className="px-3 py-3 text-xs text-slate-200">
+                        {fish.baits.map(translateBait).join(' / ')}
+                      </td>
+
+                      <td className="px-3 py-3 text-xs">
+                        <div className="font-medium text-slate-200">
+                          {fish.locations.map(translateLocation).join(', ')}
+                        </div>
+                        <div className="text-slate-400">{translateHabitat(fish.habitat)}</div>
+                      </td>
+
+                      <td className="px-3 py-3 text-xs text-slate-300">
+                        {translateLineReq(fish.lineRequirement)}
+                      </td>
+
+                      <td className="px-3 py-3 text-xs">
+                        {fish.sellPrice && (
+                          <div className="font-medium text-yellow-300/90">{fish.sellPrice}</div>
+                        )}
+                        {fish.recycling && fish.recycling.length > 0 && (
+                          <div className="text-slate-400">
+                            {fish.recycling
+                              .map((r) => `${r.qty}x ${translateRecyclingItem(r.item)}`)
+                              .join(', ')}
+                          </div>
+                        )}
+                      </td>
+
+                      <td className="px-4 py-3 text-right">
+                        <button
+                          type="button"
+                          onClick={() => toggleCaught(fish.id)}
+                          className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+                            isCaught
+                              ? 'border-emerald-500/60 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30'
+                              : 'border-slate-700 bg-slate-800/80 text-slate-300 hover:border-emerald-500/50 hover:text-emerald-300'
+                          }`}
+                        >
+                          <Check className={`h-3.5 w-3.5 ${isCaught ? 'opacity-100' : 'opacity-40'}`} />
+                          {isCaught ? t.caughtBtn : t.markCaughtBtn}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </main>
         ) : (
           <main className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filteredFish.map((fish) => {
