@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DREADMOOR Tracker — Fish & Collection Guide</title>
+    <title>DREADMOOR Tracker — Early Access 28 Fish, Bait &amp; Zones Guide</title>
     <meta
       name="description"
-      content="Interactive bilingual fish tracker and collection checklist for DREADMOOR."
+      content="Interactive bilingual Early Access tracker for DREADMOOR: all 28 fish species, bait recipes, line requirements, zones, and FAQ."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://dreadmoor-tracker.vercel.app/" />
@@ -19,32 +19,79 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dreadmoor-tracker.vercel.app/" />
-    <meta property="og:title" content="DREADMOOR Tracker — Fish & Collection Guide" />
+    <meta
+      property="og:title"
+      content="DREADMOOR Tracker — Early Access 28 Fish, Bait &amp; Zones Guide"
+    />
     <meta
       property="og:description"
-      content="Interactive bilingual fish tracker and collection checklist for DREADMOOR."
+      content="Interactive bilingual Early Access tracker for DREADMOOR: all 28 fish species, bait recipes, line requirements, zones, and FAQ."
     />
     <meta property="og:site_name" content="DREADMOOR Tracker" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="DREADMOOR Tracker — Fish & Collection Guide" />
+    <meta
+      name="twitter:title"
+      content="DREADMOOR Tracker — Early Access 28 Fish, Bait &amp; Zones Guide"
+    />
     <meta
       name="twitter:description"
-      content="Interactive bilingual fish tracker and collection checklist for DREADMOOR."
+      content="Interactive bilingual Early Access tracker for DREADMOOR: all 28 fish species, bait recipes, line requirements, zones, and FAQ."
     />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "DREADMOOR Tracker",
-        "url": "https://dreadmoor-tracker.vercel.app/",
-        "description": "Interactive bilingual fish tracker and collection checklist for DREADMOOR.",
-        "applicationCategory": "GameApplication",
-        "operatingSystem": "Web",
-        "inLanguage": ["en", "es"]
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "name": "DREADMOOR Tracker",
+            "url": "https://dreadmoor-tracker.vercel.app/",
+            "description": "Interactive bilingual Early Access tracker for DREADMOOR: all 28 fish species, bait recipes, line requirements, zones, and FAQ.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web",
+            "inLanguage": ["en", "es"]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How many fish species are in DREADMOOR Early Access?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "DREADMOOR Early Access features 28 fish species across Peaceful, Predatory, Unique night-only, and Legendary categories."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where do I find Rope and Fuel Cans in DREADMOOR?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Check broken wooden structures and floating debris piles around islands. Keeping barnacles off your boat hull also reduces fuel consumption."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How to fix the Father Matthias softlock in DREADMOOR?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sail back to Ghoul Tower on the far southern (bottom-right) island and interact with the generator again to restart the event."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why aren't Peaceful or Predatory fish biting my bait?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Peaceful fish require leaving your bait completely still, while Predatory fish require reeling the lure in slowly. Unique mutants also spawn only at night."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>
