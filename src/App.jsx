@@ -2,7 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   AlertTriangle,
   Anchor,
+  BookOpen,
   Check,
+  ChevronDown,
+  ChevronUp,
   Clock,
   Coins,
   Compass,
@@ -24,6 +27,7 @@ import {
   X,
 } from 'lucide-react';
 import fishData from './data/fish.json';
+import baitsData from './data/baits.json';
 import { TRANSLATIONS } from './i18n/translations';
 
 const CAUGHT_STORAGE_KEY = 'dreadmoor_caught_v1';
@@ -127,6 +131,7 @@ export default function App() {
   const [selectedRarity, setSelectedRarity] = useState('');
   const [selectedLineReq, setSelectedLineReq] = useState('');
   const [onlyUncaught, setOnlyUncaught] = useState(false);
+  const [showBaitGuide, setShowBaitGuide] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
 
   const t = TRANSLATIONS[lang];
@@ -630,33 +635,131 @@ export default function App() {
               .replace('{total}', String(totalCount))}
           </p>
 
-          <div className="inline-flex rounded-xl border border-slate-800 bg-slate-900/90 p-1">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
-              onClick={() => setViewMode('grid')}
-              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
-                viewMode === 'grid'
-                  ? 'bg-emerald-500/20 text-emerald-300'
-                  : 'text-slate-400 hover:text-slate-200'
+              onClick={() => setShowBaitGuide((prev) => !prev)}
+              className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold transition ${
+                showBaitGuide
+                  ? 'border-sky-500/50 bg-sky-500/15 text-sky-300'
+                  : 'border-slate-800 bg-slate-900/90 text-slate-300 hover:border-slate-700 hover:text-white'
               }`}
             >
-              <LayoutGrid className="h-3.5 w-3.5" />
-              {t.viewGrid}
+              <BookOpen className="h-3.5 w-3.5" />
+              {t.baitGuideBtn}
+              {showBaitGuide ? (
+                <ChevronUp className="h-3.5 w-3.5" />
+              ) : (
+                <ChevronDown className="h-3.5 w-3.5" />
+              )}
             </button>
-            <button
-              type="button"
-              onClick={() => setViewMode('table')}
-              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
-                viewMode === 'table'
-                  ? 'bg-emerald-500/20 text-emerald-300'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Table className="h-3.5 w-3.5" />
-              {t.viewTable}
-            </button>
+
+            <div className="inline-flex rounded-xl border border-slate-800 bg-slate-900/90 p-1">
+              <button
+                type="button"
+                onClick={() => setViewMode('grid')}
+                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                  viewMode === 'grid'
+                    ? 'bg-emerald-500/20 text-emerald-300'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <LayoutGrid className="h-3.5 w-3.5" />
+                {t.viewGrid}
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('table')}
+                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                  viewMode === 'table'
+                    ? 'bg-emerald-500/20 text-emerald-300'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <Table className="h-3.5 w-3.5" />
+                {t.viewTable}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Collapsible Quick Bait Reference */}
+        {showBaitGuide && (
+          <section className="mb-6 rounded-2xl border border-sky-500/25 bg-slate-900/75 p-4 sm:p-5">
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <h2 className="flex items-center gap-2 text-sm font-bold text-slate-100 sm:text-base">
+                <BookOpen className="h-4 w-4 text-sky-400" />
+                {t.baitGuideTitle}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setShowBaitGuide(false)}
+                className="rounded-lg p-1 text-slate-400 transition hover:bg-slate-800 hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {baitsData.map((bait) => {
+                const isSelected = selectedBait === bait.id;
+                const categoryStyle =
+                  CATEGORY_STYLES[bait.category] ??
+                  'border-slate-700 bg-slate-800 text-slate-300';
+
+                return (
+                  <div
+                    key={bait.id}
+                    className={`flex flex-col justify-between rounded-xl border p-3.5 transition ${
+                      isSelected
+                        ? 'border-sky-500/50 bg-sky-950/25'
+                        : 'border-slate-800 bg-slate-950/60'
+                    }`}
+                  >
+                    <div>
+                      <div className="mb-2 flex items-center justify-between gap-2">
+                        <h3 className="font-semibold text-slate-100">{translateBait(bait.id)}</h3>
+                        <span
+                          className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${categoryStyle}`}
+                        >
+                          {t.categories[bait.category] ?? bait.category}
+                        </span>
+                      </div>
+
+                      <dl className="space-y-1.5 text-xs">
+                        <div>
+                          <dt className="text-slate-400">{t.baitUnlockLabel}:</dt>
+                          <dd className="font-medium text-slate-200">{bait.unlock[lang]}</dd>
+                        </div>
+                        <div>
+                          <dt className="text-slate-400">{t.baitRecipeLabel}:</dt>
+                          <dd className="text-emerald-300/90">{bait.recipe[lang]}</dd>
+                        </div>
+                      </dl>
+                      <p className="mt-2 text-[11px] leading-relaxed text-slate-400">
+                        {bait.tip[lang]}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setSelectedBait((prev) => (prev === bait.id ? '' : bait.id))
+                      }
+                      className={`mt-3 w-full rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+                        isSelected
+                          ? 'border-sky-500/60 bg-sky-500/20 text-sky-200'
+                          : 'border-slate-800 bg-slate-900 text-slate-300 hover:border-sky-500/40 hover:text-sky-300'
+                      }`}
+                    >
+                      {t.baitFilterAction}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Fish Grid / Table */}
         {filteredFish.length === 0 ? (

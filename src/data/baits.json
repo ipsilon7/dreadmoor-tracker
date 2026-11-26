@@ -1,0 +1,114 @@
+[
+  {
+    "id": "Earthworm",
+    "category": "Peaceful",
+    "unlock": {
+      "en": "Starting bait (unlocked by default)",
+      "es": "Cebo inicial (desbloqueado desde el principio)"
+    },
+    "recipe": {
+      "en": "Given at the start of the game",
+      "es": "Se entrega al comenzar el juego"
+    },
+    "tip": {
+      "en": "Leave completely still under the Trading Post pier.",
+      "es": "Dejalo quieto debajo del muelle del Puesto Comercial."
+    }
+  },
+  {
+    "id": "Wind-Up Tin",
+    "category": "Peaceful",
+    "unlock": {
+      "en": "Common craftable bait",
+      "es": "Cebo común crafteable"
+    },
+    "recipe": {
+      "en": "1x Metal Plate + 1x Fish Meat",
+      "es": "1x Placa de metal + 1x Carne de pescado"
+    },
+    "tip": {
+      "en": "Core bait for calm-water and night-mutant peaceful fish.",
+      "es": "Cebo base para peces pacíficos y mutantes nocturnos."
+    }
+  },
+  {
+    "id": "Sturdy Earcrawler",
+    "category": "Peaceful",
+    "unlock": {
+      "en": "Upgrade tree (0 Torn Pages) / Gill & Bozur",
+      "es": "Árbol de mejoras (0 páginas) / Gill & Bozur"
+    },
+    "recipe": {
+      "en": "1x Metal Plate + 1x Battery + 1x Thermo Coil + 1x Chromatic Scales",
+      "es": "1x Placa de metal + 1x Batería + 1x Bobina térmica + 1x Escamas cromáticas"
+    },
+    "tip": {
+      "en": "Boosts chances of larger/trophy peaceful catches.",
+      "es": "Aumenta la probabilidad de peces pacíficos grandes o trofeo."
+    }
+  },
+  {
+    "id": "Rainbow Fin",
+    "category": "Predator",
+    "unlock": {
+      "en": "Unlocked automatically via main story",
+      "es": "Desbloqueado automáticamente en la historia"
+    },
+    "recipe": {
+      "en": "1x Fish Meat + 1x Metal Plate + 1x Chromatic Scales",
+      "es": "1x Carne de pescado + 1x Placa de metal + 1x Escamas cromáticas"
+    },
+    "tip": {
+      "en": "Reel slowly! Starting lure for non-bony predators.",
+      "es": "¡Recogé lento! Señuelo inicial para depredadores."
+    }
+  },
+  {
+    "id": "Flaming Belly",
+    "category": "Predator",
+    "unlock": {
+      "en": "Recipe bought at Gill & Bozur (80 Coins)",
+      "es": "Receta comprada en Gill & Bozur (80 monedas)"
+    },
+    "recipe": {
+      "en": "1x Fish Meat + 1x Jaws + 1x Metal Plate + 1x Swamp Lily",
+      "es": "1x Carne de pescado + 1x Mandíbulas + 1x Placa de metal + 1x Lirio de pantano"
+    },
+    "tip": {
+      "en": "Attracts larger predators and boosts trophy odds.",
+      "es": "Atrae depredadores más grandes y mejora chance de trofeo."
+    }
+  },
+  {
+    "id": "Pipecross",
+    "category": "Predator",
+    "unlock": {
+      "en": "Recipe bought at Gill & Bozur (200 Coins)",
+      "es": "Receta comprada en Gill & Bozur (200 monedas)"
+    },
+    "recipe": {
+      "en": "2x Metal Plate + 1x Fish Meat + 1x Gear + 1x Leeches",
+      "es": "2x Placa de metal + 1x Carne de pescado + 1x Engranaje + 1x Sanguijuelas"
+    },
+    "tip": {
+      "en": "Specialist lure for bony predators & legendaries.",
+      "es": "Señuelo especialista para depredadores óseos y legendarios."
+    }
+  },
+  {
+    "id": "Clinging Pincer",
+    "category": "Predator",
+    "unlock": {
+      "en": "Recipe at Gill & Bozur (350 Coins, as Deadly Tick)",
+      "es": "Receta en Gill & Bozur (350 monedas, como Deadly Tick)"
+    },
+    "recipe": {
+      "en": "1x Mutant Fish Meat + 2x Metal Plate + 1x Cable + 1x Leeches",
+      "es": "1x Carne mutante + 2x Placa de metal + 1x Cable + 1x Sanguijuelas"
+    },
+    "tip": {
+      "en": "End-game lure for heavy bony & legendary catches.",
+      "es": "Señuelo final para capturas óseas pesadas y legendarias."
+    }
+  }
+]
