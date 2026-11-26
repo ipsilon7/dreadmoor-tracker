@@ -1,0 +1,155 @@
+[
+  {
+    "id": "trading-post",
+    "name": {
+      "en": "Trading Post & Approaches",
+      "es": "Puesto Comercial y Accesos"
+    },
+    "direction": {
+      "en": "Central Hub (Starting Area)",
+      "es": "Centro (Zona inicial)"
+    },
+    "tag": "Hub",
+    "description": {
+      "en": "Main safe hub. Houses Betsy & Sons (Thresher for Chromatic Scales), Gill & Bozur (bait recipes & gear), and the pier where Snappers spawn.",
+      "es": "Base principal. Aquí están Betsy & Sons (trituradora para escamas cromáticas), Gill & Bozur (recetas de cebos) y el muelle donde salen los Snappers."
+    },
+    "searchFilter": "Trading Post"
+  },
+  {
+    "id": "signal-tower",
+    "name": {
+      "en": "Signal Tower (Tuning Fork #1)",
+      "es": "Torre de Señal (Diapasón #1)"
+    },
+    "direction": {
+      "en": "Directly North of Trading Post",
+      "es": "Directamente al Norte del Puesto Comercial"
+    },
+    "tag": "Quest",
+    "description": {
+      "en": "First tuning fork location for Father Matthias's radio contact questline.",
+      "es": "Ubicación del primer diapasón para la cadena de misiones de radio del Padre Matthias."
+    },
+    "searchFilter": "Tuning Fork"
+  },
+  {
+    "id": "tuning-fork-south",
+    "name": {
+      "en": "Tuning Fork Outpost & Radio Tower",
+      "es": "Puesto Tuning Fork y Torre de Radio"
+    },
+    "direction": {
+      "en": "South / Southeast of Trading Post",
+      "es": "Sur / Sureste del Puesto Comercial"
+    },
+    "tag": "Fishing",
+    "description": {
+      "en": "Key hunting grounds for Bloodgills needed in Father Matthias's questline.",
+      "es": "Zona clave para pescar Bloodgills necesarios en las misiones del Padre Matthias."
+    },
+    "searchFilter": "Bloodgill"
+  },
+  {
+    "id": "ghoul-tower",
+    "name": {
+      "en": "Ghoul Tower (Tuning Fork #3)",
+      "es": "Torre Ghoul (Diapasón #3)"
+    },
+    "direction": {
+      "en": "Far South / Bottom-Right Edge",
+      "es": "Extremo Sur / Isla abajo a la derecha"
+    },
+    "tag": "Quest",
+    "description": {
+      "en": "First major land combat against ghouls. Contains the final tuning fork generator (also where to return if Father Matthias's quest softlocks).",
+      "es": "Primer combate terrestre contra ghouls. Tiene el generador del último diapasón (también es donde volver si se traba la misión de Matthias)."
+    },
+    "searchFilter": "Matthias"
+  },
+  {
+    "id": "lilos-cave",
+    "name": {
+      "en": "Lilo's Cave",
+      "es": "Cueva de Lilo (Lilo's Cave)"
+    },
+    "direction": {
+      "en": "Back in the Starting Zone",
+      "es": "De vuelta en la zona inicial"
+    },
+    "tag": "Quest",
+    "description": {
+      "en": "Houses the mobile sound source (Klaxon horn) needed to get past the beaver blocking the water gate, plus deep-fish objectives.",
+      "es": "Guarda la bocina Klaxon necesaria para pasar al castor que bloquea la compuerta, además de objetivos de peces profundos."
+    },
+    "searchFilter": "Caves"
+  },
+  {
+    "id": "the-throat",
+    "name": {
+      "en": "The Throat",
+      "es": "La Garganta (The Throat)"
+    },
+    "direction": {
+      "en": "Gate to Deep Water & Big Hollow",
+      "es": "Compuerta hacia Aguas Profundas / Big Hollow"
+    },
+    "tag": "Gate",
+    "description": {
+      "en": "Main chokepoint gate leading to deeper waters. Blocked by the beaver until you bring the Klaxon horn from Lilo's Cave.",
+      "es": "Paso principal hacia las aguas profundas. Bloqueado por el castor hasta llevar la bocina Klaxon desde Lilo's Cave."
+    },
+    "searchFilter": "Deep-water"
+  },
+  {
+    "id": "drowned-ruins",
+    "name": {
+      "en": "Drowned Ruins",
+      "es": "Ruinas Sumergidas (Drowned Ruins)"
+    },
+    "direction": {
+      "en": "Submerged Lands (Ruins Sectors)",
+      "es": "Tierras Sumergidas (Sectores de ruinas)"
+    },
+    "tag": "Night",
+    "description": {
+      "en": "Submerged ruin structures where night-only mutant species like Gravedigger spawn (requires Exhaustion 45).",
+      "es": "Estructuras sumergidas donde salen mutantes nocturnos como el Gravedigger (requiere Agotamiento 45)."
+    },
+    "searchFilter": "Drowned Ruins"
+  },
+  {
+    "id": "wreck-fields",
+    "name": {
+      "en": "Wreck Fields",
+      "es": "Campos de Restos (Wreck Fields)"
+    },
+    "direction": {
+      "en": "Outer Salvage Waters",
+      "es": "Aguas exteriores de chatarra"
+    },
+    "tag": "Legendary",
+    "description": {
+      "en": "Rich in boat-upgrade scrap and home to the legendary Rammfish (dock boat first; requires Thrust 45).",
+      "es": "Rica en chatarra para mejoras del barco y hogar del legendario Rammfish (atracar el barco primero; requiere Empuje 45)."
+    },
+    "searchFilter": "Wreck Fields"
+  },
+  {
+    "id": "blighted-backwater",
+    "name": {
+      "en": "Blighted Backwater",
+      "es": "Remanso Infectado (Blighted Backwater)"
+    },
+    "direction": {
+      "en": "Outer Blight Line / Fog Zones",
+      "es": "Línea de Plaga exterior / Zonas de niebla"
+    },
+    "tag": "Legendary",
+    "description": {
+      "en": "Dense fog and environmental corruption where mutated predators and the legendary Glowbug appear (requires Line Strength 45).",
+      "es": "Zona de niebla densa y corrupción donde aparecen mutantes y el legendario Glowbug (requiere Resistencia de línea 45)."
+    },
+    "searchFilter": "Blighted Backwater"
+  }
+]

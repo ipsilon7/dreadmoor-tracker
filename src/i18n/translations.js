@@ -143,6 +143,32 @@ export const TRANSLATIONS = {
     footerNote: 'Datos guardados localmente en tu navegador (sin cuenta).',
     footerDisclaimer:
       'DREADMOOR Tracker — Herramienta comunitaria no oficial hecha por fans. DREADMOOR y todos sus activos/marcas pertenecen a sus respectivos dueños.',
+    tabTracker: 'Peces',
+    tabZones: 'Zonas y Mapa',
+    tabFaq: 'Guía y FAQ',
+    zonesTitle: 'Zonas clave y puntos sin nombre',
+    zonesSubtitle:
+      'Referencias cardinales desde el Puesto Comercial para ubicarte rápido aunque el mapa del juego no muestre nombres.',
+    zoneFilterFishBtn: 'Ver peces / misiones',
+    externalMapLabel: '¿Necesitás un mapa completo con zoom?',
+    externalMapBtn: 'Abrir mapa de GamesOMG',
+    zoneTags: {
+      Hub: 'Base',
+      Quest: 'Misión',
+      Fishing: 'Pesca',
+      Gate: 'Paso',
+      Night: 'Noche',
+      Legendary: 'Legendario',
+    },
+    faqTitle: 'Guía rápida de Early Access y FAQ',
+    faqSubtitle:
+      'Soluciones a los bloqueos más comunes, ubicación de ítems escasos y mecánicas que el juego no explica.',
+    faqCategories: {
+      all: 'Todo',
+      items: 'Ítems y mejoras',
+      softlocks: 'Softlocks y bugs',
+      mechanics: 'Mecánicas',
+    },
   },
   en: {
     subtitle: 'Quick fishing guide & personal collection checklist',
@@ -228,5 +254,31 @@ export const TRANSLATIONS = {
     footerNote: 'Progress is saved locally in your browser (no account needed).',
     footerDisclaimer:
       'DREADMOOR Tracker — Unofficial fan-made community tool. DREADMOOR and all related trademarks/assets belong to their respective owners.',
+    tabTracker: 'Fish Tracker',
+    tabZones: 'Zones & Map',
+    tabFaq: 'Guide & FAQ',
+    zonesTitle: 'Key Zones & Unnamed Landmarks',
+    zonesSubtitle:
+      'Cardinal references from the Trading Post to help you navigate even when the in-game map lacks place names.',
+    zoneFilterFishBtn: 'Filter fish / quests',
+    externalMapLabel: 'Need a full pan-and-zoom map?',
+    externalMapBtn: 'Open GamesOMG Map',
+    zoneTags: {
+      Hub: 'Hub',
+      Quest: 'Quest',
+      Fishing: 'Fishing',
+      Gate: 'Gate',
+      Night: 'Night',
+      Legendary: 'Legendary',
+    },
+    faqTitle: 'Early Access Quick Guide & FAQ',
+    faqSubtitle:
+      'Fixes for common softlocks, where to find scarce items, and mechanics the game does not clearly explain.',
+    faqCategories: {
+      all: 'All',
+      items: 'Items & Upgrades',
+      softlocks: 'Softlocks & Bugs',
+      mechanics: 'Mechanics',
+    },
   },
 };

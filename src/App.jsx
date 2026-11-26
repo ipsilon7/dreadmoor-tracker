@@ -10,9 +10,12 @@ import {
   Coins,
   Compass,
   Download,
+  ExternalLink,
   Fish,
+  HelpCircle,
   Languages,
   LayoutGrid,
+  Map,
   MapPin,
   Moon,
   Package,
@@ -28,6 +31,8 @@ import {
 } from 'lucide-react';
 import fishData from './data/fish.json';
 import baitsData from './data/baits.json';
+import zonesData from './data/zones.json';
+import faqData from './data/faq.json';
 import { TRANSLATIONS } from './i18n/translations';
 
 const CAUGHT_STORAGE_KEY = 'dreadmoor_caught_v1';
@@ -120,6 +125,8 @@ function FishThumbnail({ src, name, pendingLabel }) {
 
 export default function App() {
   const [lang, setLang] = useState(loadInitialLang);
+  const [activeTab, setActiveTab] = useState('tracker');
+  const [faqFilter, setFaqFilter] = useState('all');
   const [viewMode, setViewMode] = useState(loadInitialView);
   const [spoilerAccepted, setSpoilerAccepted] = useState(loadSpoilerAccepted);
   const [caughtIds, setCaughtIds] = useState(loadCaughtIds);
@@ -320,6 +327,12 @@ export default function App() {
     }
   }
 
+  function handleFilterFromZone(queryText) {
+    clearFilters();
+    setSearch(queryText);
+    setActiveTab('tracker');
+  }
+
   function handleReset() {
     if (window.confirm(t.resetConfirm)) {
       setCaughtIds([]);
@@ -453,8 +466,52 @@ export default function App() {
           </div>
         </header>
 
-        {/* Progress & Backup Bar */}
-        <section className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-4 sm:p-5">
+        {/* Tab Navigation */}
+        <nav className="mb-6 flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setActiveTab('tracker')}
+            className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${
+              activeTab === 'tracker'
+                ? 'border-emerald-500/50 bg-emerald-500/15 text-emerald-300'
+                : 'border-slate-800 bg-slate-900/70 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+            }`}
+          >
+            <Fish className="h-4 w-4" />
+            {t.tabTracker}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('zones')}
+            className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${
+              activeTab === 'zones'
+                ? 'border-sky-500/50 bg-sky-500/15 text-sky-300'
+                : 'border-slate-800 bg-slate-900/70 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+            }`}
+          >
+            <Map className="h-4 w-4" />
+            {t.tabZones}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('faq')}
+            className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition ${
+              activeTab === 'faq'
+                ? 'border-amber-500/50 bg-amber-500/15 text-amber-300'
+                : 'border-slate-800 bg-slate-900/70 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+            }`}
+          >
+            <HelpCircle className="h-4 w-4" />
+            {t.tabFaq}
+          </button>
+        </nav>
+
+        {activeTab === 'tracker' && (
+          <>
+            {/* Progress & Backup Bar */}
+            <section className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-4 sm:p-5">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -1068,6 +1125,115 @@ export default function App() {
               );
             })}
           </main>
+        )}
+          </>
+        )}
+
+        {activeTab === 'zones' && (
+          <section className="space-y-6">
+            <div className="flex flex-col gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h2 className="text-lg font-bold text-slate-50">{t.zonesTitle}</h2>
+                <p className="mt-1 text-sm text-slate-400">{t.zonesSubtitle}</p>
+              </div>
+              <a
+                href="https://gamesomg.com/dreadmoor-map/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-sky-500/40 bg-sky-500/15 px-4 py-2.5 text-xs font-semibold text-sky-300 transition hover:bg-sky-500/25"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                {t.externalMapBtn}
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {zonesData.map((zone) => (
+                <article
+                  key={zone.id}
+                  className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/60 p-4 transition hover:border-slate-700"
+                >
+                  <div>
+                    <div className="mb-2 flex items-start justify-between gap-2">
+                      <h3 className="text-base font-bold text-slate-100">{zone.name[lang]}</h3>
+                      <span className="shrink-0 rounded-full border border-sky-500/30 bg-sky-500/10 px-2.5 py-0.5 text-[11px] font-medium text-sky-300">
+                        {t.zoneTags[zone.tag] ?? zone.tag}
+                      </span>
+                    </div>
+
+                    <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-emerald-300">
+                      <Compass className="h-3.5 w-3.5 shrink-0" />
+                      {zone.direction[lang]}
+                    </p>
+
+                    <p className="text-xs leading-relaxed text-slate-300">
+                      {zone.description[lang]}
+                    </p>
+                  </div>
+
+                  {zone.searchFilter && (
+                    <button
+                      type="button"
+                      onClick={() => handleFilterFromZone(zone.searchFilter)}
+                      className="mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-700 bg-slate-800/80 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-emerald-500/50 hover:text-emerald-300"
+                    >
+                      <Fish className="h-3.5 w-3.5" />
+                      {t.zoneFilterFishBtn}
+                    </button>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'faq' && (
+          <section className="space-y-6">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
+              <h2 className="text-lg font-bold text-slate-50">{t.faqTitle}</h2>
+              <p className="mt-1 text-sm text-slate-400">{t.faqSubtitle}</p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {['all', 'items', 'softlocks', 'mechanics'].map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setFaqFilter(cat)}
+                    className={`rounded-xl border px-3 py-1.5 text-xs font-semibold transition ${
+                      faqFilter === cat
+                        ? 'border-amber-500/50 bg-amber-500/15 text-amber-300'
+                        : 'border-slate-800 bg-slate-950/60 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+                    }`}
+                  >
+                    {t.faqCategories[cat]}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {faqData
+                .filter((item) => faqFilter === 'all' || item.category === faqFilter)
+                .map((item) => (
+                  <article
+                    key={item.id}
+                    className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4"
+                  >
+                    <div className="mb-2 flex items-start justify-between gap-2">
+                      <h3 className="text-sm font-bold text-slate-100 sm:text-base">
+                        {item.question[lang]}
+                      </h3>
+                      <span className="shrink-0 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-medium text-amber-300">
+                        {t.faqCategories[item.category]}
+                      </span>
+                    </div>
+                    <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
+                      {item.answer[lang]}
+                    </p>
+                  </article>
+                ))}
+            </div>
+          </section>
         )}
 
         <footer className="mt-10 space-y-1.5 border-t border-slate-800/80 pt-5 text-center text-xs text-slate-500">

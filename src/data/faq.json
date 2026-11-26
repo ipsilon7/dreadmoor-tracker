@@ -1,0 +1,98 @@
+[
+  {
+    "id": "fuel-rope",
+    "category": "items",
+    "question": {
+      "en": "Where do I find Rope and Fuel Cans when running low?",
+      "es": "¿Dónde consigo Cuerda y Bidones de combustible si me quedo sin?"
+    },
+    "answer": {
+      "en": "Check broken wooden structures and floating debris piles around islands—hidden rope and fuel cans frequently spawn there. Also keep your hull clean of barnacles so your boat burns less fuel.",
+      "es": "Revisá las estructuras de madera rotas y los restos flotantes cerca de las islas: ahí suelen aparecer cuerdas y bidones ocultos. Además, mantené el casco limpio de percebes para gastar menos combustible."
+    }
+  },
+  {
+    "id": "upgrades-baits",
+    "category": "items",
+    "question": {
+      "en": "Where do I unlock stronger lines, modules, and advanced baits?",
+      "es": "¿Dónde desbloqueo líneas más fuertes, módulos y cebos avanzados?"
+    },
+    "answer": {
+      "en": "Press T to open the Upgrade Tree (uses Torn Pages) and visit the Dry Dock for Thrust, Exhaustion, and Line Strength modules. Advanced bait recipes (Flaming Belly 80, Pipecross 200, Clinging Pincer/Deadly Tick 350) are sold by Gill & Bozur.",
+      "es": "Presioná T para abrir el Árbol de Mejoras (usa páginas rasgadas) y visitá el Dique Seco para módulos de Empuje, Agotamiento y Resistencia de línea. Las recetas de cebos avanzados (Vientre llameante 80, Pipecross 200, Deadly Tick 350) se compran en Gill & Bozur."
+    }
+  },
+  {
+    "id": "matthias-softlock",
+    "category": "softlocks",
+    "question": {
+      "en": "Softlocked after talking to Father Matthias (empty tank / no marker)",
+      "es": "Me quedé trabado después de hablar con el Padre Matthias (sin marcador)"
+    },
+    "answer": {
+      "en": "Sail back down to Ghoul Tower (far southern / bottom-right island) and interact with the generator again to restart the event.",
+      "es": "Volvé navegando hasta la Torre Ghoul (isla del extremo sur / abajo a la derecha) e interactuá de nuevo con el generador para reiniciar el evento."
+    }
+  },
+  {
+    "id": "fishing-no-progress",
+    "category": "softlocks",
+    "question": {
+      "en": "Reeling in a tired fish gives zero progress",
+      "es": "Al recoger un pez cansado no avanza la barra de pesca"
+    },
+    "answer": {
+      "en": "This is a known Early Access state bug. Save and restart the game completely to reset the fishing mini-game.",
+      "es": "Es un bug conocido del Early Access. Guardá y reiniciá el juego por completo para destrabar el minijuego de pesca."
+    }
+  },
+  {
+    "id": "boat-cleaning",
+    "category": "mechanics",
+    "question": {
+      "en": "Does cleaning barnacles/shells off the boat hull actually do anything?",
+      "es": "¿Sirve de algo limpiar los percebes/conchas debajo del barco?"
+    },
+    "answer": {
+      "en": "Yes! Leaving barnacles on the hull slows down your boat's top speed and increases fuel consumption.",
+      "es": "¡Sí! Dejar los percebes pegados al casco reduce la velocidad del barco y aumenta el consumo de combustible."
+    }
+  },
+  {
+    "id": "fishing-technique",
+    "category": "mechanics",
+    "question": {
+      "en": "Why aren't Peaceful or Predatory fish biting my bait?",
+      "es": "¿Por qué no pican los peces Pacíficos o Depredadores?"
+    },
+    "answer": {
+      "en": "Peaceful fish require leaving your bait completely still (do not reel). Predatory fish require reeling the lure in slowly. Also check if the species is Night-only.",
+      "es": "Para los Pacíficos tenés que dejar el cebo quieto sin recoger. Para los Depredadores tenés que recoger lento. Revisá también si la especie es solo nocturna."
+    }
+  },
+  {
+    "id": "keyboard-controls",
+    "category": "mechanics",
+    "question": {
+      "en": "Can I play fishing without mouse-drag gestures? / Map keybinds",
+      "es": "¿Se puede pescar sin mover el mouse? / Atajos del mapa"
+    },
+    "answer": {
+      "en": "Yes—in Settings you can switch fishing controls from mouse movement to Left/Right keys. For the map, use M to open/close (extra mouse buttons like Mouse4 can fail while sailing).",
+      "es": "Sí, en Ajustes podés cambiar la pesca del mouse a las teclas Izquierda/Derecha. Para el mapa usá M para abrir/cerrar (los botones laterales del mouse como Mouse4 suelen fallar mientras navegás)."
+    }
+  },
+  {
+    "id": "legendary-dock",
+    "category": "mechanics",
+    "question": {
+      "en": "How do Legendary fish spawns work?",
+      "es": "¿Cómo funcionan los peces Legendarios?"
+    },
+    "answer": {
+      "en": "Legendary species spawn at fixed landmark spots (caves, wrecks, isolated islands) and usually require docking your boat first plus level 45 gear modules.",
+      "es": "Los Legendarios salen en puntos fijos del mapa (cuevas, restos, islas aisladas) y normalmente requieren atracar el barco primero y tener módulos de nivel 45."
+    }
+  }
+]
