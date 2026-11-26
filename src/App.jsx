@@ -174,7 +174,23 @@ export default function App() {
   const filteredFish = useMemo(() => {
     const query = search.trim().toLowerCase();
     return fishData.filter((fish) => {
-      if (query && !fish.name.toLowerCase().includes(query)) return false;
+      if (query) {
+        const searchable = [
+          fish.name,
+          fish.contractUse?.[lang],
+          fish.contractUse?.en,
+          fish.notes?.[lang],
+          fish.habitat,
+          t.habitats?.[fish.habitat],
+          ...fish.locations.flatMap((loc) => [loc, t.locations?.[loc]]),
+          ...fish.baits.flatMap((bait) => [bait, t.baits?.[bait]]),
+          ...(fish.recycling ?? []).flatMap((r) => [r.item, t.recyclingItems?.[r.item]]),
+        ];
+        const matchesQuery = searchable.some(
+          (text) => typeof text === 'string' && text.toLowerCase().includes(query),
+        );
+        if (!matchesQuery) return false;
+      }
       if (selectedBait && !fish.baits.includes(selectedBait)) return false;
       if (selectedLocation && !fish.locations.includes(selectedLocation)) return false;
       if (selectedCategory && fish.category !== selectedCategory) return false;
@@ -186,6 +202,8 @@ export default function App() {
     });
   }, [
     search,
+    lang,
+    t,
     selectedBait,
     selectedLocation,
     selectedCategory,
