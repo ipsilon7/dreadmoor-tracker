@@ -141,6 +141,8 @@ export const TRANSLATIONS = {
       Glowbug: 'Glowbug',
     },
     footerNote: 'Datos guardados localmente en tu navegador (sin cuenta).',
+    footerDisclaimer:
+      'DREADMOOR Tracker — Herramienta comunitaria no oficial hecha por fans. DREADMOOR y todos sus activos/marcas pertenecen a sus respectivos dueños.',
   },
   en: {
     subtitle: 'Quick fishing guide & personal collection checklist',
@@ -224,5 +226,7 @@ export const TRANSLATIONS = {
     locations: {},
     recyclingItems: {},
     footerNote: 'Progress is saved locally in your browser (no account needed).',
+    footerDisclaimer:
+      'DREADMOOR Tracker — Unofficial fan-made community tool. DREADMOOR and all related trademarks/assets belong to their respective owners.',
   },
 };

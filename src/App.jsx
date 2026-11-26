@@ -1070,8 +1070,9 @@ export default function App() {
           </main>
         )}
 
-        <footer className="mt-10 border-t border-slate-800/80 pt-5 text-center text-xs text-slate-500">
-          {t.footerNote}
+        <footer className="mt-10 space-y-1.5 border-t border-slate-800/80 pt-5 text-center text-xs text-slate-500">
+          <p>{t.footerNote}</p>
+          <p className="text-[11px] text-slate-600">{t.footerDisclaimer}</p>
         </footer>
       </div>
     </div>
