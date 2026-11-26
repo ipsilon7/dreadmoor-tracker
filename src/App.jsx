@@ -22,6 +22,7 @@ import {
   RotateCcw,
   ScrollText,
   Search,
+  SlidersHorizontal,
   Sparkles,
   Sun,
   Table,
@@ -138,6 +139,7 @@ export default function App() {
   const [selectedRarity, setSelectedRarity] = useState('');
   const [selectedLineReq, setSelectedLineReq] = useState('');
   const [onlyUncaught, setOnlyUncaught] = useState(false);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [showBaitGuide, setShowBaitGuide] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
 
@@ -248,15 +250,16 @@ export default function App() {
     caughtSet,
   ]);
 
-  const hasActiveFilters =
-    Boolean(search) ||
-    Boolean(selectedBait) ||
-    Boolean(selectedLocation) ||
-    Boolean(selectedCategory) ||
-    Boolean(selectedTime) ||
-    Boolean(selectedRarity) ||
-    Boolean(selectedLineReq) ||
-    onlyUncaught;
+  const activeDropdownCount = [
+    selectedBait,
+    selectedLocation,
+    selectedCategory,
+    selectedTime,
+    selectedRarity,
+    selectedLineReq,
+  ].filter(Boolean).length;
+
+  const hasActiveFilters = Boolean(search) || activeDropdownCount > 0 || onlyUncaught;
 
   const totalCount = fishData.length;
   const caughtCount = fishData.filter((f) => caughtSet.has(f.id)).length;
@@ -568,107 +571,48 @@ export default function App() {
         </section>
 
         {/* Search & Filters */}
-        <section className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder={t.searchPlaceholder}
-              className="w-full rounded-xl border border-slate-800 bg-slate-900/90 py-2.5 pl-9 pr-3 text-sm text-slate-100 placeholder-slate-500 focus:border-emerald-500/60 focus:outline-none"
-            />
-          </div>
+        <section className="mb-5 space-y-2.5 sm:mb-6">
+          {/* Mobile compact bar: Search + Uncaught + Filters toggle */}
+          <div className="flex flex-wrap items-center gap-2 sm:hidden">
+            <div className="relative min-w-0 flex-1">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder={t.searchPlaceholder}
+                className="w-full rounded-xl border border-slate-800 bg-slate-900/90 py-2 pl-9 pr-3 text-sm text-slate-100 placeholder-slate-500 focus:border-emerald-500/60 focus:outline-none"
+              />
+            </div>
 
-          <select
-            value={selectedBait}
-            onChange={(e) => setSelectedBait(e.target.value)}
-            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
-          >
-            <option value="">{t.allBaits}</option>
-            {allBaits.map((bait) => (
-              <option key={bait} value={bait}>
-                {translateBait(bait)}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedLocation}
-            onChange={(e) => setSelectedLocation(e.target.value)}
-            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
-          >
-            <option value="">{t.allLocations}</option>
-            {allLocations.map((loc) => (
-              <option key={loc} value={loc}>
-                {translateLocation(loc)}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
-          >
-            <option value="">{t.allCategories}</option>
-            {allCategories.map((cat) => (
-              <option key={cat} value={cat}>
-                {t.categories[cat] ?? cat}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedTime}
-            onChange={(e) => setSelectedTime(e.target.value)}
-            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
-          >
-            <option value="">{t.allTimes}</option>
-            {allTimes.map((time) => (
-              <option key={time} value={time}>
-                {t.times[time] ?? time}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedRarity}
-            onChange={(e) => setSelectedRarity(e.target.value)}
-            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
-          >
-            <option value="">{t.allRarities}</option>
-            {allRarities.map((rarity) => (
-              <option key={rarity} value={rarity}>
-                {t.rarities[rarity] ?? rarity}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedLineReq}
-            onChange={(e) => setSelectedLineReq(e.target.value)}
-            className="rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-2.5 text-sm text-slate-200 focus:border-emerald-500/60 focus:outline-none"
-          >
-            <option value="">{t.allLineReqs}</option>
-            {allLineReqs.map((req) => (
-              <option key={req} value={req}>
-                {translateLineReq(req)}
-              </option>
-            ))}
-          </select>
-
-          <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => setOnlyUncaught((prev) => !prev)}
-              className={`flex-1 rounded-xl border px-3 py-2.5 text-xs font-semibold transition ${
+              className={`rounded-xl border px-2.5 py-2 text-xs font-semibold transition ${
                 onlyUncaught
                   ? 'border-amber-500/50 bg-amber-500/15 text-amber-300'
-                  : 'border-slate-800 bg-slate-900/90 text-slate-300 hover:border-slate-700'
+                  : 'border-slate-800 bg-slate-900/90 text-slate-300'
               }`}
             >
               {t.onlyUncaught}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setShowMobileFilters((prev) => !prev)}
+              className={`inline-flex items-center gap-1.5 rounded-xl border px-2.5 py-2 text-xs font-semibold transition ${
+                showMobileFilters || activeDropdownCount > 0
+                  ? 'border-emerald-500/50 bg-emerald-500/15 text-emerald-300'
+                  : 'border-slate-800 bg-slate-900/90 text-slate-300'
+              }`}
+            >
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+              {t.filtersBtn}
+              {activeDropdownCount > 0 && (
+                <span className="rounded-full bg-emerald-500/30 px-1.5 text-[10px] font-bold text-emerald-200">
+                  {activeDropdownCount}
+                </span>
+              )}
             </button>
 
             {hasActiveFilters && (
@@ -676,11 +620,131 @@ export default function App() {
                 type="button"
                 onClick={clearFilters}
                 title={t.clearFilters}
-                className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/90 p-2.5 text-slate-400 transition hover:border-slate-700 hover:text-white"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/90 p-2 text-slate-400 hover:text-white"
               >
                 <X className="h-4 w-4" />
               </button>
             )}
+          </div>
+
+          <div
+            className={`${
+              showMobileFilters ? 'grid' : 'hidden sm:grid'
+            } grid-cols-2 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4`}
+          >
+            <div className="relative hidden sm:block">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder={t.searchPlaceholder}
+                className="w-full rounded-xl border border-slate-800 bg-slate-900/90 py-2.5 pl-9 pr-3 text-sm text-slate-100 placeholder-slate-500 focus:border-emerald-500/60 focus:outline-none"
+              />
+            </div>
+
+            <select
+              value={selectedBait}
+              onChange={(e) => setSelectedBait(e.target.value)}
+              className="rounded-xl border border-slate-800 bg-slate-900/90 px-2.5 py-2 text-xs text-slate-200 focus:border-emerald-500/60 focus:outline-none sm:px-3 sm:py-2.5 sm:text-sm"
+            >
+              <option value="">{t.allBaits}</option>
+              {allBaits.map((bait) => (
+                <option key={bait} value={bait}>
+                  {translateBait(bait)}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              className="rounded-xl border border-slate-800 bg-slate-900/90 px-2.5 py-2 text-xs text-slate-200 focus:border-emerald-500/60 focus:outline-none sm:px-3 sm:py-2.5 sm:text-sm"
+            >
+              <option value="">{t.allLocations}</option>
+              {allLocations.map((loc) => (
+                <option key={loc} value={loc}>
+                  {translateLocation(loc)}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="rounded-xl border border-slate-800 bg-slate-900/90 px-2.5 py-2 text-xs text-slate-200 focus:border-emerald-500/60 focus:outline-none sm:px-3 sm:py-2.5 sm:text-sm"
+            >
+              <option value="">{t.allCategories}</option>
+              {allCategories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {t.categories[cat] ?? cat}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedTime}
+              onChange={(e) => setSelectedTime(e.target.value)}
+              className="rounded-xl border border-slate-800 bg-slate-900/90 px-2.5 py-2 text-xs text-slate-200 focus:border-emerald-500/60 focus:outline-none sm:px-3 sm:py-2.5 sm:text-sm"
+            >
+              <option value="">{t.allTimes}</option>
+              {allTimes.map((time) => (
+                <option key={time} value={time}>
+                  {t.times[time] ?? time}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedRarity}
+              onChange={(e) => setSelectedRarity(e.target.value)}
+              className="rounded-xl border border-slate-800 bg-slate-900/90 px-2.5 py-2 text-xs text-slate-200 focus:border-emerald-500/60 focus:outline-none sm:px-3 sm:py-2.5 sm:text-sm"
+            >
+              <option value="">{t.allRarities}</option>
+              {allRarities.map((rarity) => (
+                <option key={rarity} value={rarity}>
+                  {t.rarities[rarity] ?? rarity}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedLineReq}
+              onChange={(e) => setSelectedLineReq(e.target.value)}
+              className="rounded-xl border border-slate-800 bg-slate-900/90 px-2.5 py-2 text-xs text-slate-200 focus:border-emerald-500/60 focus:outline-none sm:px-3 sm:py-2.5 sm:text-sm"
+            >
+              <option value="">{t.allLineReqs}</option>
+              {allLineReqs.map((req) => (
+                <option key={req} value={req}>
+                  {translateLineReq(req)}
+                </option>
+              ))}
+            </select>
+
+            <div className="hidden items-center gap-2 sm:flex">
+              <button
+                type="button"
+                onClick={() => setOnlyUncaught((prev) => !prev)}
+                className={`flex-1 rounded-xl border px-3 py-2.5 text-xs font-semibold transition ${
+                  onlyUncaught
+                    ? 'border-amber-500/50 bg-amber-500/15 text-amber-300'
+                    : 'border-slate-800 bg-slate-900/90 text-slate-300 hover:border-slate-700'
+                }`}
+              >
+                {t.onlyUncaught}
+              </button>
+
+              {hasActiveFilters && (
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  title={t.clearFilters}
+                  className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/90 p-2.5 text-slate-400 transition hover:border-slate-700 hover:text-white"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
           </div>
         </section>
 
