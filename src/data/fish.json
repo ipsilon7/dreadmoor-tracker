@@ -9,11 +9,18 @@
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Pier / Shallows",
-    "baits": ["Earthworm"],
-    "locations": ["Trading Post pier"],
+    "baits": [
+      "Earthworm"
+    ],
+    "locations": [
+      "Trading Post pier"
+    ],
     "sellPrice": "5–15",
     "recycling": [
-      { "item": "Fish meat", "qty": 1 }
+      {
+        "item": "Fish meat",
+        "qty": 1
+      }
     ],
     "contractUse": {
       "en": "5 whole Snappers (opening assignment) & basic Fish Meat",
@@ -34,12 +41,22 @@
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Peaceful Waters",
-    "baits": ["Wind-Up Tin"],
-    "locations": ["Peaceful waters"],
+    "baits": [
+      "Wind-Up Tin"
+    ],
+    "locations": [
+      "Peaceful waters"
+    ],
     "sellPrice": "16–28",
     "recycling": [
-      { "item": "Fish meat", "qty": 1 },
-      { "item": "Chromatic scales", "qty": 1 }
+      {
+        "item": "Fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 1
+      }
     ],
     "contractUse": {
       "en": "Chromatic Scales (processed at the Thresher at Betsy & Sons)",
@@ -60,12 +77,24 @@
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Sheltered Shallows",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Sheltered Shallows", "Trading Post approaches"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Sheltered Shallows",
+      "Trading Post approaches"
+    ],
     "sellPrice": "39–100",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Chromatic scales", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Fish Meat, Chromatic Scales & general trade",
@@ -86,12 +115,23 @@
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Weedy Shallows",
-    "baits": ["Sturdy Earcrawler", "Wind-Up Tin"],
-    "locations": ["Weedy shallows"],
+    "baits": [
+      "Sturdy Earcrawler",
+      "Wind-Up Tin"
+    ],
+    "locations": [
+      "Weedy shallows"
+    ],
     "sellPrice": "40–101",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Chromatic scales", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Fish Meat, Chromatic Scales & early contracts",
@@ -105,19 +145,30 @@
   {
     "id": "sharpfin",
     "name": "Sharpfin",
-    "image": null,
+    "image": "/images/fish/sharpfin.webp",
     "category": "Peaceful",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Peaceful Waters",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Peaceful waters"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Peaceful waters"
+    ],
     "sellPrice": "26–58",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Chromatic scales", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Chromatic Scales & general trade",
@@ -131,20 +182,34 @@
   {
     "id": "shovelnose",
     "name": "Shovelnose",
-    "image": null,
+    "image": "/images/fish/shovelnose.webp",
     "category": "Peaceful",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Outer / Deep Water",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Outer regions"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Outer regions"
+    ],
     "sellPrice": "26–61",
     "recycling": [
-      { "item": "Chromatic scales", "qty": 2 },
-      { "item": "Bone plate", "qty": 1 },
-      { "item": "Fish meat", "qty": 2 }
+      {
+        "item": "Chromatic scales",
+        "qty": 2
+      },
+      {
+        "item": "Bone plate",
+        "qty": 1
+      },
+      {
+        "item": "Fish meat",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Bone Plate & Chromatic Scales",
@@ -158,19 +223,30 @@
   {
     "id": "tileback",
     "name": "Tileback",
-    "image": null,
+    "image": "/images/fish/tileback.webp",
     "category": "Peaceful",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Peaceful Waters",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Peaceful waters"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Peaceful waters"
+    ],
     "sellPrice": "35–75",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Chromatic scales", "qty": 3 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "High-yield Chromatic Scales",
@@ -184,20 +260,34 @@
   {
     "id": "necrosoft",
     "name": "Necrosoft",
-    "image": null,
+    "image": "/images/fish/necrosoft.webp",
     "category": "Peaceful",
     "rarity": "Unique",
     "isMutant": true,
     "timeOfDay": "Night",
     "lineRequirement": "None",
     "habitat": "Night / Blighted Waters",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Mutated night schools"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Mutated night schools"
+    ],
     "sellPrice": "39–94",
     "recycling": [
-      { "item": "Mutant fish meat", "qty": 1 },
-      { "item": "Chromatic scales", "qty": 3 },
-      { "item": "Leeches", "qty": 2 }
+      {
+        "item": "Mutant fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 3
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Mutant Fish Meat, Leeches & Chromatic Scales",
@@ -211,20 +301,34 @@
   {
     "id": "sawfin",
     "name": "Sawfin",
-    "image": null,
+    "image": "/images/fish/sawfin.webp",
     "category": "Peaceful",
     "rarity": "Unique",
     "isMutant": true,
     "timeOfDay": "Night",
     "lineRequirement": "None",
     "habitat": "Night / Blighted Waters",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Mutated night schools"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Mutated night schools"
+    ],
     "sellPrice": "40–99",
     "recycling": [
-      { "item": "Mutant fish meat", "qty": 1 },
-      { "item": "Chromatic scales", "qty": 3 },
-      { "item": "Leeches", "qty": 2 }
+      {
+        "item": "Mutant fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Chromatic scales",
+        "qty": 3
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Mutant Fish Meat & Leeches",
@@ -238,20 +342,34 @@
   {
     "id": "gravedigger",
     "name": "Gravedigger",
-    "image": null,
+    "image": "/images/fish/gravedigger.webp",
     "category": "Peaceful",
     "rarity": "Unique",
     "isMutant": true,
     "timeOfDay": "Night",
     "lineRequirement": "Exhaustion 45",
     "habitat": "Drowned Ruins",
-    "baits": ["Wind-Up Tin", "Sturdy Earcrawler"],
-    "locations": ["Drowned Ruins"],
+    "baits": [
+      "Wind-Up Tin",
+      "Sturdy Earcrawler"
+    ],
+    "locations": [
+      "Drowned Ruins"
+    ],
     "sellPrice": "50–130",
     "recycling": [
-      { "item": "Chromatic scales", "qty": 3 },
-      { "item": "Leeches", "qty": 2 },
-      { "item": "Bone plate", "qty": 2 }
+      {
+        "item": "Chromatic scales",
+        "qty": 3
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      },
+      {
+        "item": "Bone plate",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Late-game Bone Plate, Leeches & high value trade",
@@ -272,12 +390,22 @@
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Splash Zones",
-    "baits": ["Rainbow Fin"],
-    "locations": ["Disturbed-water splash zones"],
+    "baits": [
+      "Rainbow Fin"
+    ],
+    "locations": [
+      "Disturbed-water splash zones"
+    ],
     "sellPrice": "15–32",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Jaws", "qty": 1 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 1
+      }
     ],
     "contractUse": {
       "en": "Carburetor quest chain & early Jaws",
@@ -298,12 +426,22 @@
     "timeOfDay": "Both",
     "lineRequirement": "None",
     "habitat": "Outer / Deep Water",
-    "baits": ["Rainbow Fin"],
-    "locations": ["Tuning Fork outpost"],
+    "baits": [
+      "Rainbow Fin"
+    ],
+    "locations": [
+      "Tuning Fork outpost"
+    ],
     "sellPrice": "26–53",
     "recycling": [
-      { "item": "Fish meat", "qty": 3 },
-      { "item": "Jaws", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 3
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Father Matthias quest markers",
@@ -317,19 +455,31 @@
   {
     "id": "gleamer",
     "name": "Gleamer",
-    "image": null,
+    "image": "/images/fish/gleamer.webp",
     "category": "Predator",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Night",
     "lineRequirement": "None",
     "habitat": "Night / Blighted Waters",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Dark waterways", "Open water"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Dark waterways",
+      "Open water"
+    ],
     "sellPrice": "29–62",
     "recycling": [
-      { "item": "Fish meat", "qty": 3 },
-      { "item": "Jaws", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 3
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Fish Meat & Jaws",
@@ -343,20 +493,34 @@
   {
     "id": "greasechar",
     "name": "Greasechar",
-    "image": null,
+    "image": "/images/fish/greasechar.webp",
     "category": "Predator",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Line Strength 30",
     "habitat": "Splash Zones",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Predatory grounds"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Predatory grounds"
+    ],
     "sellPrice": "28–59",
     "recycling": [
-      { "item": "Fish meat", "qty": 1 },
-      { "item": "Fish guts", "qty": 2 },
-      { "item": "Jaws", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Fish guts",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Fish Guts & Jaws",
@@ -370,19 +534,30 @@
   {
     "id": "hornhead",
     "name": "Hornhead",
-    "image": null,
+    "image": "/images/fish/hornhead.webp",
     "category": "Predator",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Thrust 30",
     "habitat": "Outer / Deep Water",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Deep-water zones"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Deep-water zones"
+    ],
     "sellPrice": "30–68",
     "recycling": [
-      { "item": "Fish guts", "qty": 2 },
-      { "item": "Jaws", "qty": 3 }
+      {
+        "item": "Fish guts",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "High-yield Jaws & Fish Guts",
@@ -396,19 +571,30 @@
   {
     "id": "rivetback",
     "name": "Rivetback",
-    "image": null,
+    "image": "/images/fish/rivetback.webp",
     "category": "Predator",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Thrust 30",
     "habitat": "Outer / Deep Water",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Deep-water zones"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Deep-water zones"
+    ],
     "sellPrice": "34–69",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Jaws", "qty": 2 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Fish Meat & Jaws",
@@ -422,20 +608,34 @@
   {
     "id": "bully",
     "name": "Bully",
-    "image": null,
+    "image": "/images/fish/bully.webp",
     "category": "Predator",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Exhaustion 30",
     "habitat": "Splash Zones",
-    "baits": ["Pipecross", "Clinging Pincer"],
-    "locations": ["Predatory channels"],
+    "baits": [
+      "Pipecross",
+      "Clinging Pincer"
+    ],
+    "locations": [
+      "Predatory channels"
+    ],
     "sellPrice": "41–101",
     "recycling": [
-      { "item": "Jaws", "qty": 2 },
-      { "item": "Bone plate", "qty": 3 },
-      { "item": "Fish meat", "qty": 3 }
+      {
+        "item": "Jaws",
+        "qty": 2
+      },
+      {
+        "item": "Bone plate",
+        "qty": 3
+      },
+      {
+        "item": "Fish meat",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "Bone Plate & Jaws farming",
@@ -449,20 +649,34 @@
   {
     "id": "bonescar",
     "name": "Bonescar",
-    "image": null,
+    "image": "/images/fish/bonescar.webp",
     "category": "Predator",
     "rarity": "Rare",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Thrust 30",
     "habitat": "Outer / Deep Water",
-    "baits": ["Pipecross", "Clinging Pincer"],
-    "locations": ["Deep-water zones"],
+    "baits": [
+      "Pipecross",
+      "Clinging Pincer"
+    ],
+    "locations": [
+      "Deep-water zones"
+    ],
     "sellPrice": "48–118",
     "recycling": [
-      { "item": "Bone plate", "qty": 2 },
-      { "item": "Jaws", "qty": 2 },
-      { "item": "Fish meat", "qty": 2 }
+      {
+        "item": "Bone plate",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      },
+      {
+        "item": "Fish meat",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Bone Plate, Jaws & high sell value",
@@ -474,31 +688,8 @@
     }
   },
   {
-    "id": "bristler",
-    "name": "Bristler",
-    "image": null,
-    "category": "Predator",
-    "rarity": "Rare",
-    "isMutant": false,
-    "timeOfDay": "Both",
-    "lineRequirement": "Unknown",
-    "habitat": "The Throat / Sunken Cities",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["The Throat", "Sunken Cities"],
-    "sellPrice": null,
-    "recycling": [],
-    "contractUse": {
-      "en": "Late-zone predator catch",
-      "es": "Captura de depredador en zona avanzada"
-    },
-    "notes": {
-      "en": "Dangerous predator found near The Throat / Sunken Cities.",
-      "es": "Depredador peligroso ubicado cerca de La Garganta / Ciudades hundidas."
-    }
-  },
-  {
-    "id": "crackback",
-    "name": "Crackback",
+    "id": "harpy",
+    "name": "Harpy",
     "image": null,
     "category": "Predator",
     "rarity": "Unique",
@@ -506,13 +697,69 @@
     "timeOfDay": "Night",
     "lineRequirement": "None",
     "habitat": "Night / Blighted Waters",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Mutated night schools"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Dark waterways",
+      "Open water"
+    ],
+    "sellPrice": "24–64",
+    "recycling": [
+      {
+        "item": "Mutant fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Jaws",
+        "qty": 1
+      },
+      {
+        "item": "Leeches",
+        "qty": 1
+      }
+    ],
+    "contractUse": {
+      "en": "Mutant Fish Meat, Jaws & Leeches",
+      "es": "Carne de pez mutante, mandíbulas y sanguijuelas"
+    },
+    "notes": {
+      "en": "Unique predator active in open water at night. Reel slowly; no module required.",
+      "es": "Depredador único activo en mar abierto de noche. Recogé lento; sin requisito de módulo."
+    }
+  },
+  {
+    "id": "crackback",
+    "name": "Crackback",
+    "image": "/images/fish/crackback.webp",
+    "category": "Predator",
+    "rarity": "Unique",
+    "isMutant": true,
+    "timeOfDay": "Night",
+    "lineRequirement": "None",
+    "habitat": "Night / Blighted Waters",
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Mutated night schools"
+    ],
     "sellPrice": "37–83",
     "recycling": [
-      { "item": "Mutant fish meat", "qty": 1 },
-      { "item": "Jaws", "qty": 2 },
-      { "item": "Leeches", "qty": 2 }
+      {
+        "item": "Mutant fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Mutant Fish Meat & Leeches",
@@ -526,20 +773,34 @@
   {
     "id": "swallower",
     "name": "Swallower",
-    "image": null,
+    "image": "/images/fish/swallower.webp",
     "category": "Predator",
     "rarity": "Unique",
     "isMutant": true,
     "timeOfDay": "Night",
     "lineRequirement": "Exhaustion 30",
     "habitat": "Night / Blighted Waters",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Mutated night schools"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Mutated night schools"
+    ],
     "sellPrice": "24–50",
     "recycling": [
-      { "item": "Mutant fish meat", "qty": 1 },
-      { "item": "Jaws", "qty": 2 },
-      { "item": "Leeches", "qty": 2 }
+      {
+        "item": "Mutant fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Mutant Fish Meat & Leeches",
@@ -553,20 +814,34 @@
   {
     "id": "cryptmaw",
     "name": "Cryptmaw",
-    "image": null,
+    "image": "/images/fish/cryptmaw.webp",
     "category": "Predator",
     "rarity": "Unique",
     "isMutant": true,
     "timeOfDay": "Night",
     "lineRequirement": "Line Strength 30",
     "habitat": "Night / Blighted Waters",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Mutated night schools"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Mutated night schools"
+    ],
     "sellPrice": "43–106",
     "recycling": [
-      { "item": "Mutant fish meat", "qty": 2 },
-      { "item": "Jaws", "qty": 2 },
-      { "item": "Leeches", "qty": 2 }
+      {
+        "item": "Mutant fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Night Fishing quest target & Mutant Fish Meat",
@@ -580,18 +855,26 @@
   {
     "id": "stonegnawer",
     "name": "Stonegnawer",
-    "image": null,
+    "image": "/images/fish/stonegnawer.webp",
     "category": "Predator",
     "rarity": "Unique",
     "isMutant": true,
     "timeOfDay": "Both",
     "lineRequirement": "Thrust 45",
     "habitat": "Outer / Deep Water",
-    "baits": ["Pipecross", "Clinging Pincer"],
-    "locations": ["Mutated deep schools"],
+    "baits": [
+      "Pipecross",
+      "Clinging Pincer"
+    ],
+    "locations": [
+      "Mutated deep schools"
+    ],
     "sellPrice": "38–115",
     "recycling": [
-      { "item": "Bone plate", "qty": 3 }
+      {
+        "item": "Bone plate",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "High-yield Bone Plate",
@@ -605,20 +888,34 @@
   {
     "id": "shardback",
     "name": "Shardback",
-    "image": null,
+    "image": "/images/fish/shardback.webp",
     "category": "Predator",
     "rarity": "Legendary",
     "isMutant": true,
     "timeOfDay": "Both",
     "lineRequirement": "Exhaustion 45",
     "habitat": "Caves / Landmarks",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Fixed landmark spot"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Fixed landmark spot"
+    ],
     "sellPrice": "58–137",
     "recycling": [
-      { "item": "Mutant fish meat", "qty": 1 },
-      { "item": "Jaws", "qty": 1 },
-      { "item": "Leeches", "qty": 2 }
+      {
+        "item": "Mutant fish meat",
+        "qty": 1
+      },
+      {
+        "item": "Jaws",
+        "qty": 1
+      },
+      {
+        "item": "Leeches",
+        "qty": 2
+      }
     ],
     "contractUse": {
       "en": "Legendary trophy & high sell value",
@@ -632,20 +929,34 @@
   {
     "id": "rammfish",
     "name": "Rammfish",
-    "image": null,
+    "image": "/images/fish/rammfish.webp",
     "category": "Predator",
     "rarity": "Legendary",
     "isMutant": true,
     "timeOfDay": "Both",
     "lineRequirement": "Thrust 45",
     "habitat": "Wreck Fields",
-    "baits": ["Pipecross", "Clinging Pincer"],
-    "locations": ["Wreck Fields"],
+    "baits": [
+      "Pipecross",
+      "Clinging Pincer"
+    ],
+    "locations": [
+      "Wreck Fields"
+    ],
     "sellPrice": "54–139",
     "recycling": [
-      { "item": "Bony horn", "qty": 1 },
-      { "item": "Bone plate", "qty": 2 },
-      { "item": "Leeches", "qty": 3 }
+      {
+        "item": "Bony horn",
+        "qty": 1
+      },
+      {
+        "item": "Bone plate",
+        "qty": 2
+      },
+      {
+        "item": "Leeches",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "Bony Horn, Bone Plate & top sell price",
@@ -659,20 +970,34 @@
   {
     "id": "glowbug",
     "name": "Glowbug",
-    "image": null,
+    "image": "/images/fish/glowbug.webp",
     "category": "Predator",
     "rarity": "Legendary",
     "isMutant": true,
     "timeOfDay": "Both",
     "lineRequirement": "Line Strength 45",
     "habitat": "Blighted Backwater",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Blighted Backwater"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Blighted Backwater"
+    ],
     "sellPrice": "55–131",
     "recycling": [
-      { "item": "Glowbug", "qty": 1 },
-      { "item": "Jaws", "qty": 2 },
-      { "item": "Leeches", "qty": 3 }
+      {
+        "item": "Glowbug",
+        "qty": 1
+      },
+      {
+        "item": "Jaws",
+        "qty": 2
+      },
+      {
+        "item": "Leeches",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "Legendary specimen & Leeches",
@@ -686,19 +1011,30 @@
   {
     "id": "stormfin",
     "name": "Stormfin",
-    "image": null,
+    "image": "/images/fish/stormfin.webp",
     "category": "Predator",
     "rarity": "Legendary",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Exhaustion 45",
     "habitat": "Caves / Landmarks",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Fixed landmark spot"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Fixed landmark spot"
+    ],
     "sellPrice": "45–93",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Jaws", "qty": 3 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "Legendary trophy & Jaws",
@@ -712,19 +1048,30 @@
   {
     "id": "plasmling",
     "name": "Plasmling",
-    "image": null,
+    "image": "/images/fish/plasmling.webp",
     "category": "Predator",
     "rarity": "Legendary",
     "isMutant": false,
     "timeOfDay": "Both",
     "lineRequirement": "Thrust 45",
     "habitat": "Caves / Landmarks",
-    "baits": ["Rainbow Fin", "Flaming Belly"],
-    "locations": ["Fixed landmark spot"],
+    "baits": [
+      "Rainbow Fin",
+      "Flaming Belly"
+    ],
+    "locations": [
+      "Fixed landmark spot"
+    ],
     "sellPrice": "45–90",
     "recycling": [
-      { "item": "Fish meat", "qty": 2 },
-      { "item": "Jaws", "qty": 3 }
+      {
+        "item": "Fish meat",
+        "qty": 2
+      },
+      {
+        "item": "Jaws",
+        "qty": 3
+      }
     ],
     "contractUse": {
       "en": "Legendary trophy & Jaws",
